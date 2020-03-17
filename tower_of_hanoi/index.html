@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Wallpoet&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="heading">
+        <img class="fontimg" src="images/t.png">
+        <img class="fontimg" src="images/o.png">
+        <img class="fontimg" src="images/w.png">
+        <img class="fontimg" src="images/e.png">
+        <img class="fontimg" src="images/r.png">
+        <img class="fontimg" src="images/space.png">
+
+        <img class="fontimg" src="images/o.png">
+        <img class="fontimg" src="images/f.png">
+        <img class="fontimg" src="images/space.png">
+
+        <img class="fontimg" src="images/h.png">
+        <img class="fontimg" src="images/a.png">
+        <img class="fontimg" src="images/n.png">
+        <img class="fontimg" src="images/o.png">
+        <img class="fontimg" src="images/i.png">
+    </div>
+
+    <div id="logincontainer">
+        <span id="logintext">RP GAMES</span>
+        
+        <div id="name">
+            <span>NAME:</span>
+            <input id="playername" type="text">
+        </div>
+        <div id="disc">
+            <span>DISC:</span>
+            <input id="totaldisc" type="text" placeholder="(1-10)" value="3">
+        </div>
+        
+        <div id="startbutton" onclick="startgame();"><p>START</p></div>
+    </div>
+
+    <div id="game">
+        <div id="towerarea" onclick="hanoigame(event)">
+            <div class="tower" id="tower1"></div>
+            <div class="tower" id="tower2"></div>
+            <div class="tower" id="tower3"></div>
+
+            <div class="disc" id="disc1"></div>
+            <div class="disc" id="disc2"></div>
+            <div class="disc" id="disc3"></div>
+            <div class="disc" id="disc4"></div>
+            <div class="disc" id="disc5"></div>
+            <div class="disc" id="disc6"></div>
+            <div class="disc" id="disc7"></div>
+            <div class="disc" id="disc8"></div>
+            <div class="disc" id="disc9"></div>
+            <div class="disc" id="disc10"></div>
+
+        </div>
+        <div id="moves">Moves: <span id="movescount">0</span></div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+        <span class="close" onclick="closemodalfunction()">&times;</span>
+        <p id="congrats"></p>
+        </div>
+  
+    </div>
+</body>
+</html>
