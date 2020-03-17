@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="mainContainer">
+        <div id="container">
+
+            <!-- Select the Algorithm -->
+            <select id="algo">
+                <option value="selection">Selection Sort</option>
+                <option value="bubble" active>Bubble Sort</option>
+                
+            </select>
+
+            <!-- Enter size of array -->
+            <input id="sizeOfArray" type="text" placeholder="Size of array" value=20>
+
+            <!-- Start button -->
+            <input id="visualize" type="button" value="Visualize" onclick="activate()">
+            
+        </div>
+        <canvas id="bars"></canvas>
+    </div>
+    
+    <script src="js/script_main.js"></script>
+    <script src="js/sort_algos.js"></script>
+
+</body>
+</html>

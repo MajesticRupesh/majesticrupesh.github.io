@@ -1,0 +1,57 @@
+html,body {
+    overflow: hidden;
+}
+
+#mainContainer {
+    position: absolute;
+    left: 0vw;
+    top: 0vh;
+    width: 99vw;
+    height: 98vh;
+    border-width: 1vh 0.5vw;
+    border-style: solid;
+    border-color:navy;
+    box-shadow: 0 0 10px 2px blue inset;
+}
+
+#container {
+    position: relative;
+    top: 2%;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    font-size: larger;
+}
+
+#bars {
+    position: absolute;
+    top: 10vh;
+    width: 98.4vw;
+    height: 87vh;
+    border-style: solid;
+    border-width:0.5vh 0.3vw;
+    border-color: rgb(100, 0, 190);
+}
+
+@media only screen and (max-width: 600px) {
+    #mainContainer {
+        width: 98vw;
+        border-width: 1vh 1vw;
+    }
+    #bars {
+        width: 96.4vw;
+        border-width:0.5vh 0.8vw;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    #mainContainer {
+        width: 96vw;
+        border-width: 1vh 2vw;
+    }
+    #bars {
+        width: 94vw;
+        border-width:0.5vh 1vw;
+    }
+}
