@@ -19,12 +19,12 @@ li {
     margin-top: auto;
     margin-bottom: auto;
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     justify-content: center;
 }
 
 li:nth-child(2) {
-  margin-top: 15px;
+  margin-top: 17px;
 }
 
 li a {
