@@ -1,0 +1,89 @@
+#main-container {
+    margin: 100px auto 50px auto;
+    max-width: 1000px;
+    padding: 0 20px;
+}
+
+.container {
+    max-width: 600px;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+}
+
+.predict-container {
+    margin: 10px 20px;
+    display: none;
+}
+
+.predict-container > p {
+    cursor: pointer;
+    display: inline-block;
+    max-width: 600px;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(254,218,9);
+    margin: 3px 0px;
+    color: rgb(59, 17, 248);
+    box-shadow: 2px 2px 5px gray;
+}
+
+.container > p {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.server {
+    background-color: white;
+    margin: 10px 0px;
+    color: black;
+    box-shadow: -2px 2px 5px gray;
+}
+
+.client {
+    background-color: #2276e3;
+    margin: 10px 0px 10px auto;
+    color: white;
+    box-shadow: 2px 2px 5px gray;
+}
+
+@media only screen and (max-width: 700px) {
+    .container {
+        max-width: 300px;
+        width: fit-content;
+    }
+}
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+div#wave .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 3px;
+    background: #303131;
+    animation: wave 0.8s linear infinite;
+}
+div#wave .dot:nth-child(2) {
+    animation-delay: -0.7s;
+}
+div#wave .dot:nth-child(3) {
+    animation-delay: -0.6s;
+}
+
+@keyframes wave {
+    0%, 60%, 100% {
+        transform: initial;
+    }
+    30% {
+        transform: translateY(-15px);
+    }
+}

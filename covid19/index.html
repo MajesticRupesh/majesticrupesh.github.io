@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Virus Scan</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+      html{
+        height: 100%;
+      }
+      body {
+          background-image: url("wallpaper1.jpg");
+          background-color: rgba(255,255,255,0.5);
+          background-blend-mode: lighten;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-attachment: fixed;
+      }
+
+    </style>
+</head>
+<body onload="loads(0)">
+
+  <nav>
+    <li><img id="brand-logo" src="amour.png" height=50px></li>
+    <li>Covid 19 Digital screening</li>
+    
+  </nav>
+
+  <div id="main-container">
+      <div class="container server">
+        <p>Hi, I am your personal healthcare assistant from Amour Lab. I will walk you through self assessment for Covid 19 symptoms. 
+          I was developed under the guidelines of WHO and the Indian Government. Please note that I am not a medical expert.</p>
+      </div>
+
+      <!-- Age -->
+      <div class="container server">
+        <p>Please mention your age</p>
+      </div>
+      <div class="predict-container">
+        <p class="predict1">below 25</p>
+        <p class="predict1">25-40</p>
+        <p class="predict1">40-60</p>
+        <p class="predict1">above 60</p>
+      </div>
+      <div class="container client">
+        <p id="client1"></p>
+      </div>
+
+      <!-- Gender -->
+      <div class="container server">
+        <p>Please mention your gender</p>
+      </div>
+      <div class="predict-container">
+        <p class="predict2">Male</p>
+        <p class="predict2">Female</p>
+        <p class="predict2">Others</p>
+      </div>
+      <div class="container client">
+        <p id="client2"></p>
+      </div>
+
+      <!-- Temperature -->
+      <div class="container server">
+        <p>What is your body temperature?</p>
+      </div>
+      <div class="predict-container">
+        <p class="predict3">normal (96<sup>o</sup>F to 98.6<sup>o</sup>F)</p>
+        <p class="predict3">high (98.6<sup>o</sup>F to 102<sup>o</sup>F)</p>
+        <p class="predict3">very high (>102<sup>o</sup>F)</p>
+      </div>
+      <div class="container client">
+        <p id="client3"></p>
+      </div>
+      
+      <!-- Symptoms 1 -->
+      <div class="container server">
+        <p>Are you experiencing any of these issues</p>
+      </div>
+      <div class="predict-container">
+        <p class="predict4">Dry cough</p>
+        <p class="predict4">Diminished sense of smell</p>
+        <p class="predict4">sore throat</p>
+        <p class="predict4">weakness</p>
+        <p class="predict4">change in appetite</p>
+        <p class="predict4">None of these</p>
+      </div>
+      <div class="container client">
+        <p id="client4"></p>
+      </div>
+
+      <!-- Symptoms 2 -->
+      <div class="container server">
+        <p>Are you having these symptoms</p>
+      </div>
+      <div class="predict-container">
+        <p class="predict5">Moderate to severe cough</p>
+        <p class="predict5">feeling breathless</p>
+        <p class="predict5">difficulty in breathing</p>
+        <p class="predict5">drowsiness</p>
+        <p class="predict5">pain in chest</p>
+        <p class="predict5">severe weakness</p>
+        <p class="predict5">None of these</p>
+      </div>
+      <div class="container client">
+        <p id="client5"></p>
+      </div>
+      
+      <!-- Travel History -->
+      <div class="container server">
+        <p>Please tell me about your travel history</p>
+      </div>
+      <div class="predict-container">
+        <p class="predict6">no travel history</p>
+        <p class="predict6">went to some safe private meeting</p>
+        <p class="predict6">went to some public place in last 14 days</p>
+        <p class="predict6">confirmed contact with Covid in last 14 days</p>
+      </div>
+      <div class="container client">
+        <p id="client6"></p>
+      </div>
+      
+      <!-- History of diseases -->
+      <div class="container server">
+        <p>Do you have a history of these conditions</p>
+      </div>
+      <div class="predict-container">
+        <p class="predict7">Diabetes</p>
+        <p class="predict7">high blood pressure</p>
+        <p class="predict7">heart disease</p>
+        <p class="predict7">kidney disease</p>
+        <p class="predict7">lung disease</p>
+        <p class="predict7">stroke</p>
+        <p class="predict7">reduced immunity</p>
+        <p class="predict7">None of these</p>
+      </div>
+      <div class="container client">
+        <p id="client7"></p>
+      </div>
+
+      <div class="container server" id="wave">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+  </div>
+
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div>
+        <div id="wrapper">
+        <svg id="meter">
+          <circle id="outline_curves" class="circle outline" 
+          cx="50%" cy="50%"></circle>
+           
+          <circle id="low" class="circle range" cx="50%" cy="50%"
+          stroke="green"></circle>
+           
+          <circle id="avg" class="circle range" cx="50%" cy="50%"
+          stroke="rgb(254,218,9)"></circle>
+           
+          <circle id="high" class="circle range" cx="50%" cy="50%"
+          stroke="red"></circle>
+           
+          <circle id="mask" class="circle" cx="50%" cy="50%" >
+          </circle>
+           
+          <circle id="outline_ends" class="circle outline"
+          cx="50%" cy="50%"></circle>
+        </svg>
+        <img id="meter_needle" src="gauge-needle.svg" alt="">
+        <label id="lbl" id="value" for="">0</label>
+        </div>
+        <p id="risk" style="text-align: center;"></p>
+      </div>
+    </div>
+  
+  </div>
+
+  <script>
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    var server = document.getElementsByClassName("server");
+    var client = document.getElementsByClassName("client");
+    var predict = document.getElementsByClassName("predict-container");
+    var typing = server[8];
+
+    var count = 0;
+
+    async function loads(n) {
+        typing.style.display="block";
+        await sleep(500);
+        typing.style.display = "none";
+        document.getElementsByClassName("server")[n].style.display = "block";
+        
+        if(n==0) {
+            loads(1);
+        }
+        else {
+            document.getElementsByClassName("predict-container")[n-1].style.display = "block";
+            window.scrollTo(0,document.body.scrollHeight);
+        }
+    }
+
+    $(document).ready(function () {
+        $(".predict1").click(async function() {
+            var index = $(".predict1").index(this);
+            document.getElementById("client1").innerHTML = document.getElementsByClassName("predict1")[index].innerHTML;
+            var ar = [1,2,3,5];
+            count = count + ar[index];
+            console.log(count);
+            client[0].style.display = "block";
+            await sleep(200);
+            predict[0].style.display = "none";
+            loads(2);
+        });
+
+        $(".predict2").click(async function() {
+            var index = $(".predict2").index(this);
+            document.getElementById("client2").innerHTML = document.getElementsByClassName("predict2")[index].innerHTML;
+            var ar = [1,1,1];
+            count = count + ar[index];
+            console.log(count);
+            client[1].style.display = "block";
+            await sleep(200);
+            predict[1].style.display = "none";
+            loads(3);
+            
+        });
+
+        $(".predict3").click(async function() {
+            var index = $(".predict3").index(this);
+            document.getElementById("client3").innerHTML = document.getElementsByClassName("predict3")[index].innerHTML;
+            var ar = [1,3,5];
+            count = count + ar[index];
+            console.log(count);
+            client[2].style.display = "block";
+            await sleep(200);
+            predict[2].style.display = "none";
+            loads(4);
+            
+        });
+
+        $(".predict4").click(async function() {
+            var index = $(".predict4").index(this);
+            document.getElementById("client4").innerHTML = document.getElementsByClassName("predict4")[index].innerHTML;
+            var ar = [5,4,4,3,2,0];
+            count = count + ar[index];
+            console.log(count);
+            client[3].style.display = "block";
+            await sleep(200);
+            predict[3].style.display = "none";
+            loads(5);
+            
+        });
+
+        $(".predict5").click(async function() {
+            var index = $(".predict5").index(this);
+            document.getElementById("client5").innerHTML = document.getElementsByClassName("predict5")[index].innerHTML;
+            var ar = [5,4,4,2,3,3,0];
+            count = count + ar[index];
+            console.log(count);
+            client[4].style.display = "block";
+            await sleep(200);
+            predict[4].style.display = "none";
+            loads(6);
+            
+        });
+
+        $(".predict6").click(async function() {
+            var index = $(".predict6").index(this);
+            document.getElementById("client6").innerHTML = document.getElementsByClassName("predict6")[index].innerHTML;
+            var ar = [1,2,3,10];
+            count = count + ar[index];
+            console.log(count);
+            client[5].style.display = "block";
+            await sleep(200);
+            predict[5].style.display = "none";
+            loads(7);
+          
+        });
+
+        $(".predict7").click(async function() {
+            var index = $(".predict7").index(this);
+            document.getElementById("client7").innerHTML = document.getElementsByClassName("predict7")[index].innerHTML;
+            var ar = [2,2,3,2,3,4,4,0];
+            count = count + ar[index];
+            console.log(count);
+            client[6].style.display = "block";
+            await sleep(200);
+            predict[6].style.display = "none";
+            $(function () {
+              modalopen();
+            });
+        });
+    });
+
+
+
+
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    async function modalopen() {
+      modal.style.display = "block";
+      var risk = document.getElementById("risk");
+      if(count<13) {
+        risk.innerHTML = "LOW";
+        risk.style.color = "GREEN";
+        risk.style.fontSize = "40px";
+      }
+      else if(count<26) {
+        risk.innerHTML = "AVERAGE";
+        risk.style.color = "rgb(254,218,9)";
+        risk.style.fontSize = "40px";
+      }
+      else {
+        risk.innerHTML = "HIGH";
+        risk.style.color = "RED";
+        risk.style.fontSize = "40px";
+      }
+      var upval=0;
+      while(upval<=count) {
+        range_change_event(upval++);
+        await sleep(30);
+      }
+      
+    }
+
+   
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+
+
+
+    var r = 100;
+        var circles = document.querySelectorAll('.circle');
+        var total_circles = circles.length;
+        for (var i = 0; i < total_circles; i++) {
+            circles[i].setAttribute('r', r);
+        }
+        
+        /* Set meter's wrapper dimension */
+        var meter_dimension = (r * 2) + 100;
+        var wrapper = document.querySelector("#wrapper");
+        wrapper.style.width = meter_dimension + "px";
+        wrapper.style.height = meter_dimension + "px";
+        
+        /* Add strokes to circles  */
+        var cf = 2 * Math.PI * r;
+        var semi_cf = cf / 2;
+        var semi_cf_1by3 = semi_cf / 3;
+        var semi_cf_2by3 = semi_cf_1by3 * 2;
+        document.querySelector("#outline_curves")
+            .setAttribute("stroke-dasharray", semi_cf + "," + cf);
+        document.querySelector("#low")
+            .setAttribute("stroke-dasharray", semi_cf + "," + cf);
+        document.querySelector("#avg")
+            .setAttribute("stroke-dasharray", semi_cf_2by3 + "," + cf);
+        document.querySelector("#high")
+            .setAttribute("stroke-dasharray", semi_cf_1by3 + "," + cf);
+        document.querySelector("#outline_ends")
+            .setAttribute("stroke-dasharray", 2 + "," + (semi_cf - 2));
+        document.querySelector("#mask")
+            .setAttribute("stroke-dasharray", semi_cf + "," + cf);
+        
+        /* Bind range slider event*/
+        var slider = document.querySelector("#slider");
+        var lbl = document.querySelector("#lbl");
+        var mask = document.querySelector("#mask");
+        var meter_needle =  document.querySelector("#meter_needle");
+        
+        function range_change_event(cnt) {
+            var percent = cnt;
+            var meter_value = semi_cf - ((percent * semi_cf) / 35);
+            mask.setAttribute("stroke-dasharray", meter_value + "," + cf);
+            meter_needle.style.transform = "rotate(" + 
+                (270 + ((percent * 180) / 100)) + "deg)";
+            lbl.textContent = percent + "%";
+        }
+
+        
+  </script>
+  
+</body>
+</html>
