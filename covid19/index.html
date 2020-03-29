@@ -10,21 +10,7 @@
 	<link rel="stylesheet" href="css/meter.css">
 	<link rel="stylesheet" href="css/modal.css">
 	<link rel="stylesheet" href="css/nav.css">
-	
-	<style>
-		html{
-			height: 100%;
-		}
-		body {
-			background-image: url("wallpaper1.jpg");
-			background-color: rgba(255,255,255,0.5);
-			background-blend-mode: lighten;
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-attachment: fixed;
-		}
-	</style>
+	<link rel="stylesheet" href="css/style_main.css">
 </head>
 <body onload="loads(0)">
 	
@@ -153,7 +139,7 @@
 			
 		</div>
 		
-		
+		<!-- MODAL -->
 		<div id="myModal" class="modal">
 			
 			<!-- Modal content -->
@@ -161,6 +147,8 @@
 					<span class="close">&times;</span>
 					<div>
 							<p style="font-size:30px;">Risk analysis</p>
+
+							<!-- THE METER -->
 							<div id="wrapper">
 									<svg id="meter">
 											<circle id="outline_curves" class="circle outline" 
@@ -188,6 +176,8 @@
 					</div>
 			</div>
 		</div>
+
+		<div id="reset" onclick="reset()"></div>
 		
 		
 		<script src="js/chat.js"></script>

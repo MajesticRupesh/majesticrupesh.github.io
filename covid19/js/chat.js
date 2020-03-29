@@ -9,6 +9,20 @@ var typing = server[8];
 
 var count = 0;
 
+function reset() {
+    count = 0;
+    for(var i=0;i<server.length;i++) {
+        server[i].style.display = "none";
+    }
+    for(var i=0;i<client.length;i++) {
+        client[i].style.display = "none";
+    }
+    for(var i=0;i<predict.length;i++) {
+        predict[i].style.display = "none";
+    }
+    loads(0);
+}
+
 async function loads(n) {
     typing.style.display="block";
     await sleep(500);
