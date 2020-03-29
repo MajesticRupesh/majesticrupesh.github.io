@@ -1,5 +1,5 @@
 #main-container {
-    margin: 100px auto 50px auto;
+    margin: 100px auto;
     max-width: 1000px;
     padding: 0 20px;
 }
@@ -7,7 +7,7 @@
 .container {
     max-width: 600px;
     width: fit-content;
-    border-radius: 5px;
+    
     padding: 10px;
     display: none;
 }
@@ -41,6 +41,10 @@
     margin: 10px 0px;
     color: black;
     box-shadow: -2px 2px 5px gray;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
 }
 
 .client {
@@ -48,6 +52,10 @@
     margin: 10px 0px 10px auto;
     color: white;
     box-shadow: 2px 2px 5px gray;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 @media only screen and (max-width: 700px) {

@@ -10,7 +10,7 @@ nav {
     background-color: #2276e3;
     justify-content: center;
     vertical-align: middle;
-    /*box-shadow: 0 2px 5px 2px gray;*/
+    box-shadow: 0 2px 5px 2px gray;
 }
 
 li {
