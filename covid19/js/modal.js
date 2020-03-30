@@ -9,12 +9,12 @@ var span = document.getElementsByClassName("close")[0];
 async function modalopen() {
     modal.style.display = "block";
     var risk = document.getElementById("risk");
-    if(count<13) {
+    if(count<20) {
         risk.innerHTML = "LOW";
         risk.style.color = "GREEN";
         risk.style.fontSize = "40px";
     }
-    else if(count<26) {
+    else if(count<40) {
         risk.innerHTML = "AVERAGE";
         risk.style.color = "rgb(254,218,9)";
         risk.style.fontSize = "40px";
