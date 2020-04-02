@@ -1,3 +1,23 @@
+#overlay {
+    position: absolute;
+    top: 20vh;
+    left: 20vw;
+    width: 60vw;
+    height: 60vh;
+    text-align: center;
+    background-image: url("../taketest.jpeg");
+    box-shadow: 0px 0px 10px 2px royalblue;
+}
+
+#overlay > button {
+    position: relative;
+    top: 50px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    background-color: rgb(59, 17, 248);
+}
+
 #main-container {
     margin: 100px auto;
     max-width: 1000px;

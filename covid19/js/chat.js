@@ -2,6 +2,14 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+var predictionText = [["below 25","25-40","40-60","above 60"],
+                ["Male","Female","Others"],
+                ["normal (96 degree farenheit to 98.6 degree farenheit)","high (98 degree farenheit to 102 degree farenheit)","very high (above 102 degree farenheit)"],
+                ["Dry cough","Diminished sense of smell","sore throat","weakness","change in appetite","None of these"],
+                ["Moderate to severe cough","feeling breathless","difficulty in breathing","drowsiness","pain in chest","severe weakness","None of these"],
+                ["no travel history","went to some safe private meeting","went to some public place in last 14 days","confirmed contact with Covid in last 14 days"],
+                ["Diabetes","high blood pressure","heart disease","kidney disease","lung disease","stroke","reduced immunity","None of these"]];
+
 var server = document.getElementsByClassName("server");
 var client = document.getElementsByClassName("client");
 var predict = document.getElementsByClassName("predict-container");
@@ -14,6 +22,7 @@ function reset() {
 }
 
 async function loads(n) {
+    document.getElementById("overlay").style.display="none";
     typing.style.display="block";
     await sleep(500);
     typing.style.display = "none";
@@ -21,6 +30,36 @@ async function loads(n) {
     
     if(n==0) {
         
+        var predict1 = document.getElementsByClassName("predict1");
+        var predict2 = document.getElementsByClassName("predict2");
+        var predict3 = document.getElementsByClassName("predict3");
+        var predict4 = document.getElementsByClassName("predict4");
+        var predict5 = document.getElementsByClassName("predict5");
+        var predict6 = document.getElementsByClassName("predict6");
+        var predict7 = document.getElementsByClassName("predict7");
+        for(var i=0;i<predict1.length;i++) {
+            predict1[i].innerHTML = predictionText[0][i];
+        }
+        for(var i=0;i<predict2.length;i++) {
+            predict2[i].innerHTML = predictionText[1][i];
+        }
+        for(var i=0;i<predict3.length;i++) {
+            predict3[i].innerHTML = predictionText[2][i];
+        }
+        for(var i=0;i<predict4.length;i++) {
+            predict4[i].innerHTML = predictionText[3][i];
+        }
+        for(var i=0;i<predict5.length;i++) {
+            predict5[i].innerHTML = predictionText[4][i];
+        }
+        for(var i=0;i<predict6.length;i++) {
+            predict6[i].innerHTML = predictionText[5][i];
+        }
+        for(var i=0;i<predict7.length;i++) {
+            predict7[i].innerHTML = predictionText[6][i];
+        }
+        
+        if (window.speechSynthesis) {} else{}
         loads(1);
     }
     else {
@@ -40,17 +79,11 @@ $(document).ready(function () {
         await sleep(200);
         predict[0].style.display = "none";
         loads(2);
-        var msg = new SpeechSynthesisUtterance();
-        
-        msg.voice = speechSynthesis.getVoices().forEach(function(voice) {
-            if(voice.name=='Google हिन्दी')
-                console.log(voice.name, voice.default ? voice.default :'');
-                return voice.name;
-        });
-        msg.text = 'नमस्ते';
-        speechSynthesis.speak(msg);
-        
-        
+        speechSynthesis.cancel();
+        let u = new SpeechSynthesisUtterance();
+        u.voice = speechSynthesis.getVoices()[9];        
+        u.text = 'नमस्ते';
+        speechSynthesis.speak(u);
     });
 
     $(".predict2").click(async function() {
@@ -63,11 +96,7 @@ $(document).ready(function () {
         await sleep(200);
         predict[1].style.display = "none";
         loads(3);
-        speechSynthesis.getVoices().forEach(function(voice) {
-            if(voice.name=='Google हिन्दी')
-                console.log(voice.name, voice.default ? voice.default :'');
-                return voice.name;
-        });
+        
     });
 
     $(".predict3").click(async function() {

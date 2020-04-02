@@ -12,14 +12,13 @@
 	<link rel="stylesheet" href="css/nav.css">
 	<link rel="stylesheet" href="css/style_main.css">
 </head>
-<body onload="loads(0)">
+<body>
 	
 	<nav>
 		<li><img id="brand-logo" src="amour.png" height=50px></li>
 		<li>Covid 19 Digital screening</li>
-		
 	</nav>
-	
+	<div id="overlay"><button onclick="loads(0)">Take Test</button></div>
 	<div id="main-container">
 		<div class="container server">
 			<p>Hi, I am your personal healthcare assistant from Amour Lab. I will walk you through self assessment for Covid 19 symptoms. 
@@ -31,10 +30,10 @@
 				<p>Please mention your age</p>
 			</div>
 			<div class="predict-container">
-				<p class="predict1">below 25</p>
-				<p class="predict1">25-40</p>
-				<p class="predict1">40-60</p>
-				<p class="predict1">above 60</p>
+				<p class="predict1"></p>
+				<p class="predict1"></p>
+				<p class="predict1"></p>
+				<p class="predict1"></p>
 			</div>
 			<div class="container client">
 				<p id="client1"></p>
@@ -45,9 +44,9 @@
 				<p>Please mention your gender</p>
 			</div>
 			<div class="predict-container">
-				<p class="predict2">Male</p>
-				<p class="predict2">Female</p>
-				<p class="predict2">Others</p>
+				<p class="predict2"></p>
+				<p class="predict2"></p>
+				<p class="predict2"></p>
 			</div>
 			<div class="container client">
 				<p id="client2"></p>
@@ -58,9 +57,9 @@
 				<p>What is your body temperature?</p>
 			</div>
 			<div class="predict-container">
-				<p class="predict3">normal (96<sup>o</sup>F to 98.6<sup>o</sup>F)</p>
-				<p class="predict3">high (98.6<sup>o</sup>F to 102<sup>o</sup>F)</p>
-				<p class="predict3">very high (>102<sup>o</sup>F)</p>
+				<p class="predict3"></p>
+				<p class="predict3"></p>
+				<p class="predict3"></p>
 			</div>
 			<div class="container client">
 				<p id="client3"></p>
@@ -71,12 +70,12 @@
 				<p>Are you experiencing any of these issues</p>
 			</div>
 			<div class="predict-container">
-				<p class="predict4">Dry cough</p>
-				<p class="predict4">Diminished sense of smell</p>
-				<p class="predict4">sore throat</p>
-				<p class="predict4">weakness</p>
-				<p class="predict4">change in appetite</p>
-				<p class="predict4">None of these</p>
+				<p class="predict4"></p>
+				<p class="predict4"></p>
+				<p class="predict4"></p>
+				<p class="predict4"></p>
+				<p class="predict4"></p>
+				<p class="predict4"></p>
 				<p class="p4 confirm" style="background-color: red;">Confirm</p>
 			</div>
 			<div class="container client">
@@ -88,13 +87,13 @@
 				<p>Are you having these symptoms</p>
 			</div>
 			<div class="predict-container">
-				<p class="predict5">Moderate to severe cough</p>
-				<p class="predict5">feeling breathless</p>
-				<p class="predict5">difficulty in breathing</p>
-				<p class="predict5">drowsiness</p>
-				<p class="predict5">pain in chest</p>
-				<p class="predict5">severe weakness</p>
-				<p class="predict5">None of these</p>
+				<p class="predict5"></p>
+				<p class="predict5"></p>
+				<p class="predict5"></p>
+				<p class="predict5"></p>
+				<p class="predict5"></p>
+				<p class="predict5"></p>
+				<p class="predict5"></p>
 				<p class="p5 confirm" style="background-color: red;">Confirm</p>
 			</div>
 			<div class="container client">
@@ -106,10 +105,10 @@
 				<p>Please tell me about your travel history</p>
 			</div>
 			<div class="predict-container">
-				<p class="predict6">no travel history</p>
-				<p class="predict6">went to some safe private meeting</p>
-				<p class="predict6">went to some public place in last 14 days</p>
-				<p class="predict6">confirmed contact with Covid in last 14 days</p>
+				<p class="predict6"></p>
+				<p class="predict6"></p>
+				<p class="predict6"></p>
+				<p class="predict6"></p>
 			</div>
 			<div class="container client">
 				<p id="client6"></p>
@@ -120,14 +119,14 @@
 				<p>Do you have a history of these conditions</p>
 			</div>
 			<div class="predict-container">
-				<p class="predict7">Diabetes</p>
-				<p class="predict7">high blood pressure</p>
-				<p class="predict7">heart disease</p>
-				<p class="predict7">kidney disease</p>
-				<p class="predict7">lung disease</p>
-				<p class="predict7">stroke</p>
-				<p class="predict7">reduced immunity</p>
-				<p class="predict7">None of these</p>
+				<p class="predict7"></p>
+				<p class="predict7"></p>
+				<p class="predict7"></p>
+				<p class="predict7"></p>
+				<p class="predict7"></p>
+				<p class="predict7"></p>
+				<p class="predict7"></p>
+				<p class="predict7"></p>
 				<p class="p7 confirm" style="background-color: red;">Confirm</p>
 			</div>
 			<div class="container client">
