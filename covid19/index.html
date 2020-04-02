@@ -6,28 +6,28 @@
 	<title>Corona Virus Scan</title>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="css/containers.css">
 	<link rel="stylesheet" href="css/meter.css">
 	<link rel="stylesheet" href="css/modal.css">
 	<link rel="stylesheet" href="css/nav.css">
 	<link rel="stylesheet" href="css/style_main.css">
 </head>
-<body>
+<body onload="bodyload()">
 	
 	<nav>
 		<li><img id="brand-logo" src="amour.png" height=50px></li>
 		<li>Covid 19 Digital screening</li>
 	</nav>
-	<div id="overlay"><button onclick="loads(0)">Take Test</button></div>
+	<div id="overlay"><button class="w3-button w3-black" onclick="loads(0)">I am staying Home<br>I am staying safe</button></div>
 	<div id="main-container">
 		<div class="container server">
-			<p>Hi, I am your personal healthcare assistant from Amour Lab. I will walk you through self assessment for Covid 19 symptoms. 
-				I was developed under the guidelines of WHO and the Indian Government. Please note that I am not a medical expert.</p>
+			<p class="question"></p>
 			</div>
 			
 			<!-- Age -->
 			<div class="container server">
-				<p>Please mention your age</p>
+				<p class="question"></p>
 			</div>
 			<div class="predict-container">
 				<p class="predict1"></p>
@@ -41,7 +41,7 @@
 			
 			<!-- Gender -->
 			<div class="container server">
-				<p>Please mention your gender</p>
+				<p class="question"></p>
 			</div>
 			<div class="predict-container">
 				<p class="predict2"></p>
@@ -54,7 +54,7 @@
 			
 			<!-- Temperature -->
 			<div class="container server">
-				<p>What is your body temperature?</p>
+				<p class="question"></p>
 			</div>
 			<div class="predict-container">
 				<p class="predict3"></p>
@@ -67,7 +67,7 @@
 			
 			<!-- Symptoms 1 -->
 			<div class="container server">
-				<p>Are you experiencing any of these issues</p>
+				<p class="question"></p>
 			</div>
 			<div class="predict-container">
 				<p class="predict4"></p>
@@ -84,7 +84,7 @@
 			
 			<!-- Symptoms 2 -->
 			<div class="container server">
-				<p>Are you having these symptoms</p>
+				<p class="question"></p>
 			</div>
 			<div class="predict-container">
 				<p class="predict5"></p>
@@ -102,7 +102,7 @@
 			
 			<!-- Travel History -->
 			<div class="container server">
-				<p>Please tell me about your travel history</p>
+				<p class="question"></p>
 			</div>
 			<div class="predict-container">
 				<p class="predict6"></p>
@@ -116,7 +116,7 @@
 			
 			<!-- History of diseases -->
 			<div class="container server">
-				<p>Do you have a history of these conditions</p>
+				<p class="question"></p>
 			</div>
 			<div class="predict-container">
 				<p class="predict7"></p>

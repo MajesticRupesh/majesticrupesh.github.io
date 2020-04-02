@@ -2,6 +2,13 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function speak(text) {
+    let u = new SpeechSynthesisUtterance();
+    u.voice = speechSynthesis.getVoices()[9];        
+    u.text = text;
+    speechSynthesis.speak(u);
+}
+
 var predictionText = [["below 25","25-40","40-60","above 60"],
                 ["Male","Female","Others"],
                 ["normal (96 degree farenheit to 98.6 degree farenheit)","high (98 degree farenheit to 102 degree farenheit)","very high (above 102 degree farenheit)"],
@@ -9,6 +16,15 @@ var predictionText = [["below 25","25-40","40-60","above 60"],
                 ["Moderate to severe cough","feeling breathless","difficulty in breathing","drowsiness","pain in chest","severe weakness","None of these"],
                 ["no travel history","went to some safe private meeting","went to some public place in last 14 days","confirmed contact with Covid in last 14 days"],
                 ["Diabetes","high blood pressure","heart disease","kidney disease","lung disease","stroke","reduced immunity","None of these"]];
+
+var question = ["Hi, I am your personal healthcare assistant from Amour Lab. I will walk you through self assessment for Covid 19 symptoms. I was developed under the guidelines of WHO and the Indian Government. Please note that I am not a medical expert",
+                "Please mention your age",
+                "Please mention your gender",
+                "What is your body temperature?",
+                "Are you experiencing any of these issues",
+                "Are you having these symptoms",
+                "Please tell me about your travel history",
+                "Do you have a history of these conditions"];
 
 var server = document.getElementsByClassName("server");
 var client = document.getElementsByClassName("client");
@@ -21,6 +37,43 @@ function reset() {
     location.reload(true); 
 }
 
+function bodyload() {
+    var predict1 = document.getElementsByClassName("predict1");
+    var predict2 = document.getElementsByClassName("predict2");
+    var predict3 = document.getElementsByClassName("predict3");
+    var predict4 = document.getElementsByClassName("predict4");
+    var predict5 = document.getElementsByClassName("predict5");
+    var predict6 = document.getElementsByClassName("predict6");
+    var predict7 = document.getElementsByClassName("predict7");
+
+    for(var i=0;i<predict1.length;i++) {
+        predict1[i].innerHTML = predictionText[0][i];
+    }
+    for(var i=0;i<predict2.length;i++) {
+        predict2[i].innerHTML = predictionText[1][i];
+    }
+    for(var i=0;i<predict3.length;i++) {
+        predict3[i].innerHTML = predictionText[2][i];
+    }
+    for(var i=0;i<predict4.length;i++) {
+        predict4[i].innerHTML = predictionText[3][i];
+    }
+    for(var i=0;i<predict5.length;i++) {
+        predict5[i].innerHTML = predictionText[4][i];
+    }
+    for(var i=0;i<predict6.length;i++) {
+        predict6[i].innerHTML = predictionText[5][i];
+    }
+    for(var i=0;i<predict7.length;i++) {
+        predict7[i].innerHTML = predictionText[6][i];
+    }
+
+    var question_p = document.getElementsByClassName("question");
+    for(var i=0;i<question_p.length;i++) {
+        question_p[i].innerHTML = question[i];
+    }
+}
+
 async function loads(n) {
     document.getElementById("overlay").style.display="none";
     typing.style.display="block";
@@ -29,37 +82,13 @@ async function loads(n) {
     document.getElementsByClassName("server")[n].style.display = "block";
     
     if(n==0) {
-        
-        var predict1 = document.getElementsByClassName("predict1");
-        var predict2 = document.getElementsByClassName("predict2");
-        var predict3 = document.getElementsByClassName("predict3");
-        var predict4 = document.getElementsByClassName("predict4");
-        var predict5 = document.getElementsByClassName("predict5");
-        var predict6 = document.getElementsByClassName("predict6");
-        var predict7 = document.getElementsByClassName("predict7");
-        for(var i=0;i<predict1.length;i++) {
-            predict1[i].innerHTML = predictionText[0][i];
-        }
-        for(var i=0;i<predict2.length;i++) {
-            predict2[i].innerHTML = predictionText[1][i];
-        }
-        for(var i=0;i<predict3.length;i++) {
-            predict3[i].innerHTML = predictionText[2][i];
-        }
-        for(var i=0;i<predict4.length;i++) {
-            predict4[i].innerHTML = predictionText[3][i];
-        }
-        for(var i=0;i<predict5.length;i++) {
-            predict5[i].innerHTML = predictionText[4][i];
-        }
-        for(var i=0;i<predict6.length;i++) {
-            predict6[i].innerHTML = predictionText[5][i];
-        }
-        for(var i=0;i<predict7.length;i++) {
-            predict7[i].innerHTML = predictionText[6][i];
-        }
-        
         if (window.speechSynthesis) {} else{}
+        speechSynthesis.cancel();
+        speak(question[0]);
+        speak(question[1]);
+        for(var i=0;i<predictionText[0].length;i++) {
+            speak(predictionText[0][i]);
+        }
         loads(1);
     }
     else {
@@ -78,12 +107,13 @@ $(document).ready(function () {
         client[0].style.display = "block";
         await sleep(200);
         predict[0].style.display = "none";
-        loads(2);
+
         speechSynthesis.cancel();
-        let u = new SpeechSynthesisUtterance();
-        u.voice = speechSynthesis.getVoices()[9];        
-        u.text = 'नमस्ते';
-        speechSynthesis.speak(u);
+        speak(question[2]);
+        for(var i=0;i<predictionText[1].length;i++) {
+            speak(predictionText[1][i]);
+        }
+        loads(2);
     });
 
     $(".predict2").click(async function() {
@@ -95,8 +125,13 @@ $(document).ready(function () {
         client[1].style.display = "block";
         await sleep(200);
         predict[1].style.display = "none";
+
+        speechSynthesis.cancel();
+        speak(question[3]);
+        for(var i=0;i<predictionText[2].length;i++) {
+            speak(predictionText[2][i]);
+        }
         loads(3);
-        
     });
 
     $(".predict3").click(async function() {
@@ -108,8 +143,13 @@ $(document).ready(function () {
         client[2].style.display = "block";
         await sleep(200);
         predict[2].style.display = "none";
+
+        speechSynthesis.cancel();
+        speak(question[4]);
+        for(var i=0;i<predictionText[3].length;i++) {
+            speak(predictionText[3][i]);
+        }
         loads(4);
-        
     });
 
     // 4th step
@@ -144,6 +184,12 @@ $(document).ready(function () {
         client[3].style.display = "block";
         await sleep(200);
         predict[3].style.display = "none";
+
+        speechSynthesis.cancel();
+        speak(question[5]);
+        for(var i=0;i<predictionText[4].length;i++) {
+            speak(predictionText[4][i]);
+        }
         loads(5);
     });
 
@@ -180,6 +226,12 @@ $(document).ready(function () {
         client[4].style.display = "block";
         await sleep(200);
         predict[4].style.display = "none";
+
+        speechSynthesis.cancel();
+        speak(question[6]);
+        for(var i=0;i<predictionText[5].length;i++) {
+            speak(predictionText[5][i]);
+        }
         loads(6);
     });
 
@@ -194,6 +246,12 @@ $(document).ready(function () {
         client[5].style.display = "block";
         await sleep(200);
         predict[5].style.display = "none";
+
+        speechSynthesis.cancel();
+        speak(question[7]);
+        for(var i=0;i<predictionText[6].length;i++) {
+            speak(predictionText[6][i]);
+        }
         loads(7);
     });
 
@@ -232,6 +290,7 @@ $(document).ready(function () {
         await sleep(200);
         predict[6].style.display = "none";
         $(function () {
+            speechSynthesis.cancel();
             modalopen();
         });
     });

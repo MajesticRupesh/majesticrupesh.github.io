@@ -10,16 +10,19 @@ async function modalopen() {
     modal.style.display = "block";
     var risk = document.getElementById("risk");
     if(count<20) {
+        speak("Risk is low. Still you must stay at home and stay safe");
         risk.innerHTML = "LOW";
         risk.style.color = "GREEN";
         risk.style.fontSize = "40px";
     }
     else if(count<40) {
+        speak("Risk is average. You should consult a physician.");
         risk.innerHTML = "AVERAGE";
         risk.style.color = "rgb(254,218,9)";
         risk.style.fontSize = "40px";
     }
     else {
+        speak("Risk is high. Immediately consult a physician or reach us at Amour Labs.");
         risk.innerHTML = "HIGH";
         risk.style.color = "RED";
         risk.style.fontSize = "40px";
