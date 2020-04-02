@@ -39,6 +39,8 @@ $(document).ready(function () {
         await sleep(200);
         predict[0].style.display = "none";
         loads(2);
+        var msg = new SpeechSynthesisUtterance('please mention gender');
+        window.speechSynthesis.speak(msg);
     });
 
     $(".predict2").click(async function() {
