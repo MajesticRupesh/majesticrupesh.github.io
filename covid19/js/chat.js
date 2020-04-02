@@ -4,7 +4,8 @@ function sleep(ms) {
 
 function speak(text) {
     let u = new SpeechSynthesisUtterance();
-    u.voice = speechSynthesis.getVoices()[9];        
+    u.voice = speechSynthesis.getVoices()[0];       
+    u.rate =1.2; 
     u.text = text;
     speechSynthesis.speak(u);
 }
@@ -38,6 +39,9 @@ function reset() {
 }
 
 function bodyload() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('param');
+    console.log(myParam);
     var predict1 = document.getElementsByClassName("predict1");
     var predict2 = document.getElementsByClassName("predict2");
     var predict3 = document.getElementsByClassName("predict3");

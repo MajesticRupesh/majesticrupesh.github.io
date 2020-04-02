@@ -49,10 +49,6 @@
     box-shadow: 2px 2px 5px gray;
 }
 
-.confirm {
-    background-color: red;
-}
-
 .container > p {
     float: left;
     margin: 0;
