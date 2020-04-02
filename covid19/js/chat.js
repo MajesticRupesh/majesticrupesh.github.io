@@ -39,7 +39,7 @@ $(document).ready(function () {
         await sleep(200);
         predict[0].style.display = "none";
         loads(2);
-        var msg = new SpeechSynthesisUtterance('please mention gender');
+        var msg = new SpeechSynthesisUtterance('please mention your gender. 1. Male. 2. Female. 3. Others');
         window.speechSynthesis.speak(msg);
     });
 
