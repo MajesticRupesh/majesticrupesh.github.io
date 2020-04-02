@@ -20,6 +20,7 @@ async function loads(n) {
     document.getElementsByClassName("server")[n].style.display = "block";
     
     if(n==0) {
+        
         loads(1);
     }
     else {
@@ -40,10 +41,16 @@ $(document).ready(function () {
         predict[0].style.display = "none";
         loads(2);
         var msg = new SpeechSynthesisUtterance();
-        var voices = window.speechSynthesis.getVoices();
-        msg.voice = voices[9];        
-        msg.text = "नमस्ते";
+        
+        msg.voice = speechSynthesis.getVoices().forEach(function(voice) {
+            if(voice.name=='Google हिन्दी')
+                console.log(voice.name, voice.default ? voice.default :'');
+                return voice.name;
+        });
+        msg.text = 'नमस्ते';
         speechSynthesis.speak(msg);
+        
+        
     });
 
     $(".predict2").click(async function() {
@@ -56,7 +63,11 @@ $(document).ready(function () {
         await sleep(200);
         predict[1].style.display = "none";
         loads(3);
-        
+        speechSynthesis.getVoices().forEach(function(voice) {
+            if(voice.name=='Google हिन्दी')
+                console.log(voice.name, voice.default ? voice.default :'');
+                return voice.name;
+        });
     });
 
     $(".predict3").click(async function() {
