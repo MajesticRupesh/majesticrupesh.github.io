@@ -18,6 +18,15 @@ var predictionText = [["below 25","25-40","40-60","above 60"],
                 ["no travel history","went to some safe private meeting","went to some public place in last 14 days","confirmed contact with Covid in last 14 days"],
                 ["Diabetes","high blood pressure","heart disease","kidney disease","lung disease","stroke","reduced immunity","None of these"]];
 
+var predictionTextOdia = [["25 ତଳେ |","25 ରୁ 40","40 ରୁ 60","60 ରୁ ଅଧିକ"],
+                ["ପୁରୁଷ","ମହିଳା","ଅନ୍ୟମାନେ"],
+                ["ସାଧାରଣ (96oF ରୁ 98.6oF)","ଉଚ୍ଚ (98.6oF ରୁ 102oF),","ବହୁତ ଉଚ୍ଚ (&gt; 102oF)"],
+                ["ଶୁଖିଲା କାଶ","ଦୁର୍ଗନ୍ଧର ଗଳାର","ଗଳ। ଖରାପ","ଦୁର୍ବଳତା","ଭୋକରେ ପରିବର୍ତ୍ତନ ହୁଏ","ଏଗୁଡ଼ିକ ମଧ୍ୟରୁ କଣସି ନାହିଁ"],
+                ["ମଧ୍ୟମରୁ ଘୋର କାଶ","ନିଶ୍ୱାସ ପ୍ରଶ୍ୱାସ","ଶ୍ୱାସ ନେବାରେ ଅସୁବିଧା","ନିଦ୍ରା","ଛାତିରେ ଯନ୍ତ୍ରଣା","ଭୟଙ୍କର ଦୁର୍ବଳତା","ଏଗୁଡ଼ିକ ମଧ୍ୟରୁ କଣସି ନାହିଁ"],
+                ["କଣସି ଭ୍ରମଣ ଇତିହାସ ନାହିଁ","କିଛି ସୁରକ୍ଷିତ ବ୍ୟକ୍ତିଗତ ସଭାକୁ ଗଲେ","ଗତ 14 ଦିନରେ କିଛି ସର୍ବସାଧାରଣ ସ୍ଥାନକୁ ଯାଇଥିଲେ","ଗତ 14 ଦିନରେ କୋଭିଡ ସହିତ ଯୋଗାଯୋଗ ନିଶ୍ଚିତ ହୋଇଛି"],
+                ["ମଧୁମେହ","ଉଚ୍ଚ ରକ୍ତଚାପ","ହୃଦ୍ ରୋଗ","କିଡନୀ ରୋଗ","ଫୁସଫୁସ ରୋଗ","ଷ୍ଟ୍ରୋକ୍ ରୋଗ","ପ୍ରତିରୋଧକ ଶକ୍ତି ହ୍ରାସ କଲା","ଏଗୁଡ଼ିକ ମଧ୍ୟରୁ କଣସି ନାହିଁ"]];
+
+
 var question = ["Hi, I am your personal healthcare assistant from Amour Lab. I will walk you through self assessment for Covid 19 symptoms. I was developed under the guidelines of WHO and the Indian Government. Please note that I am not a medical expert",
                 "Please mention your age",
                 "Please mention your gender",
@@ -26,6 +35,15 @@ var question = ["Hi, I am your personal healthcare assistant from Amour Lab. I w
                 "Are you having these symptoms",
                 "Please tell me about your travel history",
                 "Do you have a history of these conditions"];
+
+var questionOdia = ["ନମସ୍ତେ, ମୁଁ ଆମୋର ଲ୍ୟାବରୁ ତୁମର ବ୍ୟକ୍ତିଗତ ସ୍ୱାସ୍ଥ୍ୟସେବା ସହାୟକ ଅଟେ | କୋଭିଡ୍ 19 ଲକ୍ଷଣ ପାଇଁ ମୁଁ ତୁମକୁ ଆତ୍ମ ମୂଲ୍ୟାଙ୍କନ ମାଧ୍ୟମରେ ଚାଲିବି | WHO ଏବଂ ଭାରତ ସରକାରଙ୍କ ନିର୍ଦ୍ଦେଶନାମା ଅନୁଯାୟୀ ମୋତେ ବିକଶିତ କରାଯାଇଥିଲା | ଦୟାକରି ଧ୍ୟାନ ଦିଅନ୍ତୁ ଯେ ମୁଁ ଜଣେ ଡାକ୍ତରୀ ବିଶେଷଜ୍ଞ ନୁହେଁ",
+                "ଦୟାକରି ଆପଣଙ୍କର ବୟସ ବିଷୟରେ ଉଲ୍ଲେଖ କରନ୍ତୁ",
+                "ଦୟାକରି ଆପଣଙ୍କର ଲିଙ୍ଗ ବିଷୟରେ ଉଲ୍ଲେଖ କରନ୍ତୁ",
+                "ଆପଣଙ୍କ ଶରୀରର ତାପମାତ୍ରା କ’ଣ?",
+                "ଆପଣ ଏହି ସମସ୍ୟାର କଣସିଟି ଅନୁଭବ କରୁଛନ୍ତି କି?",
+                "ତୁମର ଏହି ଲକ୍ଷଣଗୁଡ଼ିକ ଅଛି କି?",
+                "ଦୟାକରି ତୁମର ଯାତ୍ରା ଇତିହାସ ବିଷୟରେ ମୋତେ କୁହ",
+                "ଏହି ସର୍ତ୍ତଗୁଡିକର ଆପଣଙ୍କର ଏକ ଇତିହାସ ଅଛି କି?"];
 
 var server = document.getElementsByClassName("server");
 var client = document.getElementsByClassName("client");
@@ -40,8 +58,43 @@ function reset() {
 
 function bodyload() {
     const urlParams = new URLSearchParams(window.location.search);
-    const myParam = urlParams.get('param');
+    const myParam = urlParams.get('lang');
     console.log(myParam);
+    if(myParam == 'odia') {
+        var predict1 = document.getElementsByClassName("predict1");
+        var predict2 = document.getElementsByClassName("predict2");
+        var predict3 = document.getElementsByClassName("predict3");
+        var predict4 = document.getElementsByClassName("predict4");
+        var predict5 = document.getElementsByClassName("predict5");
+        var predict6 = document.getElementsByClassName("predict6");
+        var predict7 = document.getElementsByClassName("predict7");
+
+        for(var i=0;i<predict1.length;i++) {
+            predict1[i].innerHTML += predictionTextOdia[0][i]+"<br />";
+        }
+        for(var i=0;i<predict2.length;i++) {
+            predict2[i].innerHTML += predictionTextOdia[1][i]+"<br />";
+        }
+        for(var i=0;i<predict3.length;i++) {
+            predict3[i].innerHTML += predictionTextOdia[2][i]+"<br />";
+        }
+        for(var i=0;i<predict4.length;i++) {
+            predict4[i].innerHTML += predictionTextOdia[3][i]+"<br />";
+        }
+        for(var i=0;i<predict5.length;i++) {
+            predict5[i].innerHTML += predictionTextOdia[4][i]+"<br />";
+        }
+        for(var i=0;i<predict6.length;i++) {
+            predict6[i].innerHTML += predictionTextOdia[5][i]+"<br />";
+        }
+        for(var i=0;i<predict7.length;i++) {
+            predict7[i].innerHTML += predictionTextOdia[6][i]+"<br />";
+        }
+        var question_p = document.getElementsByClassName("question");
+        for(var i=0;i<question_p.length;i++) {
+            question_p[i].innerHTML += questionOdia[i]+"<br />";
+        }
+    }
     var predict1 = document.getElementsByClassName("predict1");
     var predict2 = document.getElementsByClassName("predict2");
     var predict3 = document.getElementsByClassName("predict3");
@@ -51,30 +104,30 @@ function bodyload() {
     var predict7 = document.getElementsByClassName("predict7");
 
     for(var i=0;i<predict1.length;i++) {
-        predict1[i].innerHTML = predictionText[0][i];
+        predict1[i].innerHTML += predictionText[0][i];
     }
     for(var i=0;i<predict2.length;i++) {
-        predict2[i].innerHTML = predictionText[1][i];
+        predict2[i].innerHTML += predictionText[1][i];
     }
     for(var i=0;i<predict3.length;i++) {
-        predict3[i].innerHTML = predictionText[2][i];
+        predict3[i].innerHTML += predictionText[2][i];
     }
     for(var i=0;i<predict4.length;i++) {
-        predict4[i].innerHTML = predictionText[3][i];
+        predict4[i].innerHTML += predictionText[3][i];
     }
     for(var i=0;i<predict5.length;i++) {
-        predict5[i].innerHTML = predictionText[4][i];
+        predict5[i].innerHTML += predictionText[4][i];
     }
     for(var i=0;i<predict6.length;i++) {
-        predict6[i].innerHTML = predictionText[5][i];
+        predict6[i].innerHTML += predictionText[5][i];
     }
     for(var i=0;i<predict7.length;i++) {
-        predict7[i].innerHTML = predictionText[6][i];
+        predict7[i].innerHTML += predictionText[6][i];
     }
 
     var question_p = document.getElementsByClassName("question");
     for(var i=0;i<question_p.length;i++) {
-        question_p[i].innerHTML = question[i];
+        question_p[i].innerHTML += question[i];
     }
 }
 
