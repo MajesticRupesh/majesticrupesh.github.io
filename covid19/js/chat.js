@@ -39,8 +39,11 @@ $(document).ready(function () {
         await sleep(200);
         predict[0].style.display = "none";
         loads(2);
-        var msg = new SpeechSynthesisUtterance('please mention your gender. 1. Male. 2. Female. 3. Others');
-        window.speechSynthesis.speak(msg);
+        var msg = new SpeechSynthesisUtterance();
+        var voices = window.speechSynthesis.getVoices();
+        msg.voice = voices[9];        
+        msg.text = "नमस्ते";
+        speechSynthesis.speak(msg);
     });
 
     $(".predict2").click(async function() {
