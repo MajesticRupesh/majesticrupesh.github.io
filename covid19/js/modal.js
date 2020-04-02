@@ -11,19 +11,35 @@ async function modalopen() {
     var risk = document.getElementById("risk");
     if(count<20) {
         speak("Risk is low. Still you must stay at home and stay safe");
-        risk.innerHTML = "LOW";
+        if(language=="odia") {
+            risk.innerHTML = "LOW"+"<br />"+"ବିପଦ କମ୍ ଅଟେ |";
+        }
+        else if(language=="eng") {
+            risk.innerHTML = "LOW";
+        }
         risk.style.color = "GREEN";
         risk.style.fontSize = "40px";
     }
     else if(count<40) {
         speak("Risk is average. You should consult a physician.");
-        risk.innerHTML = "AVERAGE";
+        if(language=="odia") {
+            risk.innerHTML = "AVERAGE"+"<br />"+"ବିପଦ ହାରାହାରି |";
+        }
+        else if(language=="eng") {
+            risk.innerHTML = "AVERAGE";
+        }
+        
         risk.style.color = "rgb(254,218,9)";
         risk.style.fontSize = "40px";
     }
     else {
         speak("Risk is high. Immediately consult a physician or reach us at Amour Labs.");
-        risk.innerHTML = "HIGH";
+        if(language=="odia") {
+            risk.innerHTML = "HIGH"+"<br />"+"ବିପଦ ଉଚ୍ଚ ଅଟେ |";
+        }
+        else if(language=="eng") {
+            risk.innerHTML = "HIGH";
+        }
         risk.style.color = "RED";
         risk.style.fontSize = "40px";
     }

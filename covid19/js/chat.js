@@ -52,6 +52,8 @@ var typing = server[8];
 
 var count = 0;
 
+var language="eng";
+
 function reset() {
     location.reload(true); 
 }
@@ -61,6 +63,7 @@ function bodyload() {
     const myParam = urlParams.get('lang');
     console.log(myParam);
     if(myParam == 'odia') {
+        language="odia";
         var predict1 = document.getElementsByClassName("predict1");
         var predict2 = document.getElementsByClassName("predict2");
         var predict3 = document.getElementsByClassName("predict3");
