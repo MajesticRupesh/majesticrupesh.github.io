@@ -97,8 +97,6 @@ hr {
     border-radius: 10px;
     text-decoration: none;
     font-size: 30px;
-    box-shadow: 1px 2px 2px 2px rgb(78, 78, 116),
-                0px 0px 20px black inset;
 }
 
 @media only screen and (max-width: 550px) {
