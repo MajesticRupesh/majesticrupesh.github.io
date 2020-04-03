@@ -237,6 +237,7 @@ hr {
 }
 
 .twitter-amour {
+    display: none;
     width: 90%;
     margin: auto;
     padding: 2px;
