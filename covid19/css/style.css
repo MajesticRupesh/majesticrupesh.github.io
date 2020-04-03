@@ -213,3 +213,31 @@ hr {
         padding: 5px 2px;
     }
 }
+
+#twitter {
+    width: 90%;
+    margin: auto;
+    padding: 2px;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+footer {
+    text-align: center;
+    color: rgb(105,105,105);
+}
+
+@media only screen and (max-width: 400px) {
+    footer > h5 {
+        font-size: 15px;
+    }
+}
+
+footer > h4 > span {
+    background-color: royalblue;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 10px;
+}
