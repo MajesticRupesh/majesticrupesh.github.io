@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/accordion.css">
     <script src="js/loaddata.js"></script>
     
-    <title>Amour Labs</title>
+    <title>Amour Lab</title>
 </head>
 <body onload="loaddata()">
     <!-- Navbar -->
@@ -23,8 +23,9 @@
         <div class="container">
             <h1 style="font-size:70px; text-shadow: 4px 4px 10px rgb(0, 4, 44)">COVID 19</h1>
             <h3>Digital Screening Live</h3>
+            <h3>ଡିଜିଟାଲ୍ ସ୍କ୍ରିନିଂ ଲାଇଭ୍</h3>
             <div class="button"><a href="chatbot/index.html?lang=eng"><b>Screen Now</b></a></div>
-            <div class="button"><a href="chatbot/index.html?lang=odia"><b>Odia Screen Now</b></a></div>
+            <div class="button"><a href="chatbot/index.html?lang=odia"><b>ସ୍କ୍ରିନ୍ ବର୍ତ୍ତମାନ</b></a></div>
         </div>
     </section>
     <hr size=3>
@@ -32,12 +33,13 @@
     <!-- Odisha Covid19 Tracker -->
     <div id="tracker">
         <h1>Odisha Covid 19 Tracker</h1>
+        <h1>ଓଡିଶା କୋଭିଡ୍ 19 ଟ୍ରାକର୍</h1>
         <br>
         <div class="word">
-            <h2 style="color:rgba(255,8,59,0.5)">Confirmed</h2>
-            <h2 style="color:rgba(1,124,255,0.5)">Active</h2>
-            <h2 style="color:rgba(41,167,70,0.5)">Recovered</h2>
-            <h2 style="color:rgba(109,118,126,0.5)">Deceased</h2>
+            <h2 style="color:rgba(255,8,59,0.5)">Confirmed<br>ନିଶ୍ଚିତ କର</h2>
+            <h2 style="color:rgba(1,124,255,0.5)">Active<br>ସକ୍ରିୟ</h2>
+            <h2 style="color:rgba(41,167,70,0.5)">Recovered<br>ପୁନରୁଦ୍ଧାର</h2>
+            <h2 style="color:rgba(109,118,126,0.5)">Deceased<br>ମୃତ</h2>
         </div>
         <div>
             <h2 id="confirmed" style="color:rgb(255,8,59)"></h2>
@@ -45,8 +47,17 @@
             <h2 id="recovered" style="color:rgb(41,167,70)"></h2>
             <h2 id="deceased" style="color:rgb(109,118,126)"></h2>
         </div>
-        <br><br>
-        <div id="odishahelpline"><a href="tel:9439994859"><b>Call Odisha Covid19 Helpline</b></a></div>
+        <br><br><br>
+        <div id="odishahelpline"><button onclick="window.location.href = 'tel:9439994859';"><b>Call Odisha Covid19 Helpline<br>ଓଡିଶା କୋଭିଡ୍ 19 ହେଲ୍ପଲାଇନକୁ କଲ୍ କରନ୍ତୁ</b></button></div><br><br><br><br>
+        <section style="padding:0px 30px">
+            <button class="accordion" style="padding:5px; font-size: 30px;text-align: center;"><b>More Details</b></button>
+            <div class = "panel">
+                <br>
+                <p>Please call the toll-free help line <a href="tel:1075">1075</a> to schedule your testing.</p>
+                <p>List of training centres <a href="https://icmr.nic.in/node/39071">https://icmr.nic.in/node/39071</a></p>
+                <p>Please visit <a href="https://www.mohfw.gov.in">www.mohfw.gov.in</a> for more information on testing and quarantine guidelines</p>
+            </div>
+        </section>
     </div>
     <br>
     <hr size=3>
@@ -60,14 +71,14 @@
 
     <!-- Specialists -->
     <div id="specialist">
-        <div id="specialistpage"><a href="#"><b>Call a Specialist</b></a></div><br>
-        <div id="medicinestores"><a href="#"><b>View Medicine stores</b></a></div><br>
+        <div id="specialistpage"><button><b>Call a Specialist<br>ଜଣେ ବିଶେଷଜ୍ଞଙ୍କୁ ଡାକନ୍ତୁ</b></button></div><br>
+        <div id="medicinestores"><button><b>View Medicine stores<br>ମେଡିସିନ୍ ଷ୍ଟୋରଗୁଡିକ ଦେଖନ୍ତୁ</b></button></div><br>
     </div>
     <hr size=3>
 
     <!-- Precautions -->
     <div id="precautions">
-        <div id="panic"><p><b>BE PREPARED BUT DON'T PANIC</b></p></div>
+        <div id="panic"><p><b>BE PREPARED BUT DON'T PANIC<br>ପ୍ରସ୍ତୁତ ହୁଅନ୍ତୁ କିନ୍ତୁ ପାନିକ୍ ହୁଅନ୍ତୁ ନାହିଁ</b></p></div>
         <div id="points">
             <button class="accordion"><b>5 easy ways to keep Coronavirus away<br>କରୋନାଭାଇରସ୍ ଦୂରରେ ରଖିବା ପାଇଁ 5 ଟି ସହଜ ଉପାୟ</b></button>
             <div class="panel">

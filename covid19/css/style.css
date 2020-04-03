@@ -90,26 +90,28 @@ hr {
     text-align: center;
 }
 
-#odishahelpline > a {
+#odishahelpline > button {
     background: royalblue;
     padding: 10px 20px;
     color: white;
     border-radius: 10px;
     text-decoration: none;
     font-size: 30px;
+    outline: none;
+    border: 0;
 }
 
 @media only screen and (max-width: 550px) {
-    #odishahelpline > a {
+    #odishahelpline > button {
         padding: 10px 10px;
-        font-size: 25px;
+        font-size: 22px;
     }
 }
 
 @media only screen and (max-width: 400px) {
-    #odishahelpline > a {
-        padding: 10px 10px;
-        font-size: 20px;
+    #odishahelpline > button {
+        padding: 10px 5px;
+        font-size: 17px;
     }
 }
 
@@ -118,30 +120,34 @@ hr {
     text-align: center;
 }
 
-#specialistpage > a {
+#specialistpage > button {
     background: rgb(255,70,70);
-    padding: 10px 54px;
+    padding: 10px 11px;
     color: white;
     border-radius: 10px;
     text-decoration: none;
     font-size: 25px;
+    outline: none;
+    border: 0;
 }
 
-#specialistpage > a:hover {
+#specialistpage > button:hover {
     background: rgb(235,50,50);
 }
 
 
-#medicinestores > a {
+#medicinestores > button {
     background: rgb(162, 235, 138);
-    padding: 10px 20px;
+    padding: 10px 4px;
     color: white;
     border-radius: 10px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 22px;
+    outline: none;
+    border: 0;
 }
 
-#medicinestores > a:hover {
+#medicinestores > button:hover {
     background: rgb(142, 215, 118);
 }
 
@@ -150,7 +156,6 @@ hr {
     width: 100%;
     text-align: center;
 }
-
 
 
 #panic > p {
@@ -188,7 +193,7 @@ hr {
 }
 
 .panel {
-    background-color: rgb(227,218,232);
+    background-color: rgb(203,234,275);
 }
 
 .panel > p {
