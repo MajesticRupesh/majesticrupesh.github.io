@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/loaddata.js"></script>
     <title>Amour Labs</title>
 </head>
-<body>
+<body onload="loaddata()">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm  navbar-dark sticky-top" style="background-color:white">
 		<img src="amour.png" height="65" style="margin:0 auto;display:block">
@@ -26,24 +27,56 @@
         </div>
     </section>
     <hr size=3>
-    <br>
 
     <!-- Odisha Covid19 Tracker -->
-    <section id="tracker">
-        <p>Odisha Covid 19 Tracker</p>
-        <div>
-            <p id="confirmed">hi</p>
-            <p id="active">hi</p>
-            <p id="recovered">hi</p>
-            <p id="deceased">hi</p>
+    <div id="tracker">
+        <h1>Odisha Covid 19 Tracker</h1>
+        <br>
+        <div class="word">
+            <h2 style="color:rgba(255,8,59,0.5)">Confirmed</h2>
+            <h2 style="color:rgba(1,124,255,0.5)">Active</h2>
+            <h2 style="color:rgba(41,167,70,0.5)">Recovered</h2>
+            <h2 style="color:rgba(109,118,126,0.5)">Deceased</h2>
         </div>
-    </section>
-
-    <!-- Health image-->
-    <section id="special">
-        <img src="tag.jpg" width="100%">
-    </section>
-    <hr size=3>
+        <div>
+            <h2 id="confirmed" style="color:rgb(255,8,59)"></h2>
+            <h2 id="active" style="color:rgb(1,124,255)"></h2>
+            <h2 id="recovered" style="color:rgb(41,167,70)"></h2>
+            <h2 id="deceased" style="color:rgb(109,118,126)"></h2>
+        </div>
+        <br><br>
+        <div id="odishahelpline"><a href="tel:9439994859"><b>Call Odisha Covid19 Helpline</b></a></div>
+    </div>
     <br>
+    <hr size=3>
+    
+    <!-- Health image -->
+    <section id="special">
+        <img src="tag.png" width="100%">
+    </section>
+    <br>
+    
+
+    <!-- Specialists -->
+    <div id="specialist">
+        
+        <div id="specialistpage"><a href="#"><b>Call a Specialist</b></a></div><br>
+        <div id="medicinestores"><a href="#"><b>View Medicine stores</b></a></div><br>
+    </div>
+    <hr size=3>
+
+    <!-- Precautions -->
+    <div id="precautions">
+        <div id="panic"><p><b>BE PREPARED BUT DON'T PANIC</b></p></div>
+        <div id="points">
+            <h4>5 easy ways to keep Coronavirus away<br>କରୋନାଭାଇରସ୍ ଦୂରରେ ରଖିବା ପାଇଁ 5 ଟି ସହଜ ଉପାୟ</h4>
+            <p>1. wash HANDS them frequently with soap and water or use alchohol-based sanitizer<br>1.ହାତଙ୍କୁ ବାରମ୍ବାର ସାବୁନ୍ ଏବଂ ପାଣିରେ ଧୋଇଦିଅନ୍ତୁ କିମ୍ବା ଆଲକୋହଲ୍ ଆଧାରିତ ସାନିଟାଇଜର ବ୍ୟବହାର କରନ୍ତୁ</p>
+            <p>2. ELBOW in the absence of disposable tissue make use of folded elbow and cough/sneeze into it<br>2.ଡିସପୋଜେବଲ୍ ଟିସୁର ଅନୁପସ୍ଥିତିରେ ELBOW ଫୋଲଡ୍ ଏଲବୋ ବ୍ୟବହାର କରେ ଏବଂ ଏଥିରେ କାଶ / ଛିଙ୍କ |</p>
+            <p>3. FACE don’t touch your face, particularly your eyes, nose or mouth<br>3. ଆପଣଙ୍କ ଚେହେରାକୁ ସ୍ପର୍ଶ କରିବ ନାହିଁ, ବିଶେଷତ ଆପଣଙ୍କ ଆଖି, ନାକ କିମ୍ବା ପାଟି |</p>
+            <p>4. DISTANCE if you are out, maintain social distancing. Keep a distance of at least 3feet from each other<br>4. ଯଦି ଆପଣ ବାହାରେ ଅଛନ୍ତି, ସାମାଜିକ ଦୂରତା ବଜାୟ ରଖନ୍ତୁ | ପରସ୍ପରଠାରୁ ଅତି କମରେ 3 ଫିଟ୍ ଦୂରତା ରଖନ୍ତୁ |</p>
+            <p>5. FEEL if you feel unwell, stay at home. But if you have fever, cough and difficulty in breathing seek medical help<br>5.ଯଦି ଆପଣ ଅସୁସ୍ଥ ଅନୁଭବ କରୁଛନ୍ତି, ଘରେ ରୁହନ୍ତୁ | କିନ୍ତୁ ଯଦି ଆପଣଙ୍କର ଜ୍ୱର, କାଶ ଏବଂ ନିଶ୍ୱାସ ନେବାରେ ଅସୁବିଧା ହେଉଛି ତେବେ ଡାକ୍ତରୀ ସାହାଯ୍ୟ ନିଅନ୍ତୁ |</p>
+        </div>
+    </div>
+    
 </body>
 </html>

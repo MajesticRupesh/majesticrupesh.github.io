@@ -32,7 +32,7 @@ hr {
 .button > a {
     background-color: black;
     color: white;
-    padding: 10px 20px;
+    padding: 5px 10px;
     text-decoration: none;
     font-size: 200%;
     text-align: center;
@@ -42,12 +42,12 @@ hr {
 
 .button > a:hover {
     transition: 0.2s;
-    padding: 13px 25px;
+    padding: 7px 12px;
 }
 
 .button > a:active {
     transition: 0s;
-    padding: 6px 10px;
+    padding: 4px 8px;
 }
 
 #tracker {
@@ -55,7 +55,140 @@ hr {
     align-items: center;
 }
 
-#tracker > div > p {
+#tracker > div {
+    display: block;
+    text-align: center;
+    margin: auto;
+    height: 40px;
+}
+
+#tracker > div > h2 {
     float: left;
     width: 25%;
+}
+
+@media only screen and (max-width: 650px) {
+    .word > h2 {
+        font-size: 1.4em;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .word > h2 {
+        font-size: 1.3em;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .word > h2 {
+        font-size: 1.1em;
+    }
+}
+
+#odishahelpline {
+    width: 100%;
+    text-align: center;
+}
+
+#odishahelpline > a {
+    background: royalblue;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 30px;
+    box-shadow: 1px 2px 2px 2px rgb(78, 78, 116),
+                0px 0px 20px black inset;
+}
+
+@media only screen and (max-width: 550px) {
+    #odishahelpline > a {
+        padding: 10px 10px;
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #odishahelpline > a {
+        padding: 10px 10px;
+        font-size: 20px;
+    }
+}
+
+#specialist {
+    width: 100%;
+    text-align: center;
+}
+
+#specialistpage > a {
+    background: rgb(255,70,70);
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+#specialistpage > a:hover {
+    background: rgb(235,50,50);
+}
+
+
+#medicinestores > a {
+    background: rgb(162, 235, 138);
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+#medicinestores > a:hover {
+    background: rgb(142, 215, 118);
+}
+
+
+#precautions {
+    width: 100%;
+    text-align: center;
+}
+
+
+
+#panic > p {
+    padding: 10px;
+    background: rgb(227,226,243);
+    font-size: 30px;
+    color: rgb(60,54,173);
+}
+
+@media only screen and (max-width: 450px) {
+    #panic > p {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    #panic > p {
+        font-size: 18px;
+    }
+}
+
+#points {
+    text-align: left;
+    padding: 5px 50px;
+}
+
+#points > h4 {
+    font-size: 23px;
+    padding: 5px 5px;
+    background-color: rgb(211, 211, 164);
+    border-radius: 10px;
+}
+
+#points > p {
+    font-size: 20px;
+    padding: 5px 5px;
+    background-color: beige;
+    border-radius: 10px;
 }
