@@ -41,5 +41,5 @@ function range_change_event(cnt) {
     mask.setAttribute("stroke-dasharray", meter_value + "," + cf);
     meter_needle.style.transform = "rotate(" + 
         (270 + ((percent * 180) / 100)) + "deg)";
-    lbl.textContent = percent + "%";
+    lbl.style.display = "none";
 }
