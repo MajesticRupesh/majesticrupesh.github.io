@@ -1,4 +1,15 @@
 function loaddata() {
+    // load twitter
+    if(window.innerWidth < 1000) {
+        document.getElementsByClassName("twitter-amour")[0].style.display = "none";
+        document.getElementsByClassName("twitter-amour")[1].style.display = "block";
+    }
+    else {
+        document.getElementsByClassName("twitter-amour")[1].style.display = "none";
+        document.getElementsByClassName("twitter-amour")[0].style.display = "block";
+    }
+
+    // load json file
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", "https://api.covid19india.org/data.json", false );
     xmlHttp.send( null );

@@ -101,7 +101,7 @@ hr {
     border: 0;
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 600px) {
     #odishahelpline > button {
         padding: 10px 10px;
         font-size: 22px;
@@ -112,6 +112,28 @@ hr {
     #odishahelpline > button {
         padding: 10px 5px;
         font-size: 17px;
+    }
+}
+
+#moredetails {
+    padding:0px 300px;
+}
+
+@media only screen and (max-width: 1300px) {
+    #moredetails {
+        padding:0px 100px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #moredetails {
+        padding:0px 50px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #moredetails {
+        padding:0px 30px;
     }
 }
 
@@ -214,7 +236,7 @@ hr {
     }
 }
 
-#twitter {
+.twitter-amour {
     width: 90%;
     margin: auto;
     padding: 2px;
