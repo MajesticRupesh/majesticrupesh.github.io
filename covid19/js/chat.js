@@ -54,6 +54,8 @@ var count = 0;
 
 var language="eng";
 
+var audio1,audio2,audio3,audio4,audio5,audio6,audio7,audio8;
+
 function reset() {
     location.reload(true); 
 }
@@ -97,6 +99,14 @@ function bodyload() {
         for(var i=0;i<question_p.length;i++) {
             question_p[i].innerHTML += questionOdia[i]+"<br />";
         }
+        audio1 = new Audio('./odia_audio/1.aac');
+        audio2 = new Audio('./odia_audio/2.aac');
+        audio3 = new Audio('./odia_audio/3.aac');
+        audio4 = new Audio('./odia_audio/4.aac');
+        audio5 = new Audio('./odia_audio/5.aac');
+        audio6 = new Audio('./odia_audio/6.aac');
+        audio7 = new Audio('./odia_audio/7.aac');
+        audio8 = new Audio('./odia_audio/8.aac');
     }
     var predict1 = document.getElementsByClassName("predict1");
     var predict2 = document.getElementsByClassName("predict2");
@@ -143,11 +153,19 @@ async function loads(n) {
     
     if(n==0) {
         if (window.speechSynthesis) {} else{}
-        speechSynthesis.cancel();
-        speak(question[0]);
-        speak(question[1]);
-        for(var i=0;i<predictionText[0].length;i++) {
-            speak(predictionText[0][i]);
+        if(language == 'eng') {
+            speechSynthesis.cancel();
+            speak(question[0]);
+            speak(question[1]);
+            for(var i=0;i<predictionText[0].length;i++) {
+                speak(predictionText[0][i]);
+            }
+        }
+        else if(language == 'odia') {
+            audio1.play();
+            audio1.onended = function() {
+                audio2.play();
+            }
         }
         loads(1);
     }
@@ -167,11 +185,17 @@ $(document).ready(function () {
         client[0].style.display = "block";
         await sleep(200);
         predict[0].style.display = "none";
-
-        speechSynthesis.cancel();
-        speak(question[2]);
-        for(var i=0;i<predictionText[1].length;i++) {
-            speak(predictionText[1][i]);
+        if(language == "eng") {
+            speechSynthesis.cancel();
+            speak(question[2]);
+            for(var i=0;i<predictionText[1].length;i++) {
+                speak(predictionText[1][i]);
+            }
+        }
+        else if(language == "odia") {
+            audio1.pause();
+            audio2.pause();
+            audio3.play();
         }
         loads(2);
     });
@@ -185,12 +209,18 @@ $(document).ready(function () {
         client[1].style.display = "block";
         await sleep(200);
         predict[1].style.display = "none";
-
-        speechSynthesis.cancel();
-        speak(question[3]);
-        for(var i=0;i<predictionText[2].length;i++) {
-            speak(predictionText[2][i]);
+        if(language == "eng") {
+            speechSynthesis.cancel();
+            speak(question[3]);
+            for(var i=0;i<predictionText[2].length;i++) {
+                speak(predictionText[2][i]);
+            }
         }
+        else if(language=="odia") {
+            audio3.pause();
+            audio4.play();
+        }
+        
         loads(3);
     });
 
@@ -203,11 +233,16 @@ $(document).ready(function () {
         client[2].style.display = "block";
         await sleep(200);
         predict[2].style.display = "none";
-
-        speechSynthesis.cancel();
-        speak(question[4]);
-        for(var i=0;i<predictionText[3].length;i++) {
-            speak(predictionText[3][i]);
+        if(language=="eng") {
+            speechSynthesis.cancel();
+            speak(question[4]);
+            for(var i=0;i<predictionText[3].length;i++) {
+                speak(predictionText[3][i]);
+            }
+        }
+        else if(language=="odia") {
+            audio4.pause();
+            audio5.play();
         }
         loads(4);
     });
@@ -244,11 +279,16 @@ $(document).ready(function () {
         client[3].style.display = "block";
         await sleep(200);
         predict[3].style.display = "none";
-
-        speechSynthesis.cancel();
-        speak(question[5]);
-        for(var i=0;i<predictionText[4].length;i++) {
-            speak(predictionText[4][i]);
+        if(language == "eng") {
+            speechSynthesis.cancel();
+            speak(question[5]);
+            for(var i=0;i<predictionText[4].length;i++) {
+                speak(predictionText[4][i]);
+            }
+        }
+        else if(language == "odia") {
+            audio5.pause();
+            audio6.play();
         }
         loads(5);
     });
@@ -286,11 +326,16 @@ $(document).ready(function () {
         client[4].style.display = "block";
         await sleep(200);
         predict[4].style.display = "none";
-
-        speechSynthesis.cancel();
-        speak(question[6]);
-        for(var i=0;i<predictionText[5].length;i++) {
-            speak(predictionText[5][i]);
+        if(language == "eng") {
+            speechSynthesis.cancel();
+            speak(question[6]);
+            for(var i=0;i<predictionText[5].length;i++) {
+                speak(predictionText[5][i]);
+            }
+        }
+        else if(language == "odia") {
+            audio6.pause();
+            audio7.play();
         }
         loads(6);
     });
@@ -306,11 +351,16 @@ $(document).ready(function () {
         client[5].style.display = "block";
         await sleep(200);
         predict[5].style.display = "none";
-
-        speechSynthesis.cancel();
-        speak(question[7]);
-        for(var i=0;i<predictionText[6].length;i++) {
-            speak(predictionText[6][i]);
+        if(language == "eng") {
+            speechSynthesis.cancel();
+            speak(question[7]);
+            for(var i=0;i<predictionText[6].length;i++) {
+                speak(predictionText[6][i]);
+            }
+        }
+        else if(language == "odia") {
+            audio7.pause();
+            audio8.play();
         }
         loads(7);
     });
@@ -350,7 +400,12 @@ $(document).ready(function () {
         await sleep(200);
         predict[6].style.display = "none";
         $(function () {
-            speechSynthesis.cancel();
+            if(language == "eng") {
+                speechSynthesis.cancel();
+            }
+            else if(language == "odia") {
+                audio8.pause();
+            }
             modalopen();
         });
     });

@@ -32,7 +32,8 @@
     right: -48px;
     top: 57%;
 }
-    #meter_needle {
+
+#meter_needle {
     height: 40%;
     left: 0;
     margin: auto;
