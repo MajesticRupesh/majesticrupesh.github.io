@@ -27,6 +27,7 @@ hr {
 .button {
     margin-top: 40px;
     color: black;
+    padding: 2px 0px;
 }
 
 .button > a {
