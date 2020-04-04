@@ -57,7 +57,7 @@ function bodyload() {
         for(j=0;j<phno[i].length;j++) {
             wa[i][j] = document.createElement("a");
             wa[i][j].className = "fa fa-whatsapp";
-            wa[i][j].href = "tel:"+ phno[i][j];
+            wa[i][j].href = "https://api.whatsapp.com/send?phone=91"+ phno[i][j];
             wa[i][j].innerHTML = "&nbsp"+phno[i][j];
             $(wa[i][j]).appendTo(p[i][j+2]);
         }
