@@ -82,3 +82,10 @@ function search() {
         }
     }
 }
+
+function showall() {
+    $("#searchbar").val("");
+    for(var i=0;i<count;i++) {
+        card[i].style.display = "block";
+    }
+}
