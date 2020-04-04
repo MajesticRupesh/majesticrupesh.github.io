@@ -89,3 +89,9 @@ function showall() {
         card[i].style.display = "block";
     }
 }
+
+document.getElementById("searchbar").addEventListener("keyup",pressHandler);
+
+function pressHandler(e) {
+    search();
+}
