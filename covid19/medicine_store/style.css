@@ -76,11 +76,26 @@ body {
 .id {
     float: right;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 700;
 }
 
+@media only screen and (max-width:600px) {
+    .id {
+        font-size: 15px;
+    }
+}
+
 @media only screen and (max-width:450px) {
+    .id {
+        font-size: 13px;
+    }
+    .card > img {
+        height: 70px;
+    }
+}
+
+@media only screen and (max-width:350px) {
     .id {
         font-size: 11px;
     }
