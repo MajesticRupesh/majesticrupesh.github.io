@@ -62,7 +62,6 @@ body {
 
 
 
-
 #container {
     padding: 20px;
 }
@@ -77,8 +76,17 @@ body {
 .id {
     float: right;
     color: white;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 700;
+}
+
+@media only screen and (max-width:450px) {
+    .id {
+        font-size: 11px;
+    }
+    .card > img {
+        height: 70px;
+    }
 }
 
 .id > p {
