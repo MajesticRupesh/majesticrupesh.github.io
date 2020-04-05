@@ -61,6 +61,7 @@ function showmap() {
             radius: 9000
         }).addTo(mymap);
     }
+    mymap.invalidateSize();
     openmodal();
 }
 
