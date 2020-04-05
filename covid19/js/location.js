@@ -18,7 +18,7 @@ function getLocation() {
 
 function showPosition(position) {
     user_pos = position;
-    mymap = L.map('mapid').setView([user_pos.coords.latitude, user_pos.coords.longitude], 8);
+    mymap = L.map('mapid').setView([user_pos.coords.latitude, user_pos.coords.longitude], 6);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
         maxZoom: 18,
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
