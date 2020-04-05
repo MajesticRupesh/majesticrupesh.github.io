@@ -251,6 +251,7 @@ hr {
 footer {
     text-align: center;
     color: rgb(105,105,105);
+    margin-bottom: 120px;
 }
 
 @media only screen and (max-width: 400px) {
@@ -268,15 +269,14 @@ footer > h4 > span {
 }
 
 #distance {
-    position: fixed;
-    top: 150px;
-    right: 10px;
-    height: 300px;
-    width: 250px;
-    background-color: rgb(252, 51, 16);
+    background-color: black;
+    margin: 0 10px;
+    overflow: auto;
+    text-align: center;
+    opacity: 0.6;
     border-radius: 10px;
     box-shadow: 0px 0px 10px black;
-    padding: 10px;
+    padding: 2px 5px;
     display: none;
 }
 
@@ -291,14 +291,18 @@ footer > h4 > span {
 #distance-content {
     font-size: 20px;
     color: white;
+    margin: 0;
+    line-height: 90%;
 }
 
 #covid-map {
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 700;
+    margin: 0;
 }
 
 #covid-map > button {
     color: cyan;
+    padding: 0;
 }

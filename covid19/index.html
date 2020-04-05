@@ -112,13 +112,7 @@
     <br>
     <hr size=10>
     <br>
-
-    <!-- Distance from covid tracker -->
-    <div id="distance">
-        <p id="cross" onclick="closedistance()">x</p>
-        <p id="distance-content">Someone within 21 km from your distance has been detected with corona virus. Stay Alert.</p>
-        <p id="covid-map"><button style="background-color: black; outline:0; border: 0;" onclick="showmap()">See the map</button></p>
-    </div>
+    
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -129,12 +123,21 @@
         </div>
     </div>
 
+    
+    
+
     <!-- Footer -->
     <footer>
         <h5>Powered by: <b>Amour Lab Private Limited</b></h5>
         <h5>A Startup from Startup Odisha</h5><br>
         <h4><span onclick="window.location.href = 'tel:9658610011';">Contact us</span></h4>
     </footer>
+
+    <div id="distance" class="fixed-bottom">
+        <!--<p id="cross" onclick="closedistance()">x</p>-->
+        <p id="distance-content">Someone within 21 km from your distance has been detected with corona virus. Stay Alert.</p>
+        <p id="covid-map"><button style="background-color: black; outline:0; border: 0;" onclick="showmap()">See the map</button></p>
+    </div>
 
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="js/accordion.js"></script>

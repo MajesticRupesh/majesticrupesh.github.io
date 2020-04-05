@@ -1,6 +1,6 @@
-var area_name = ["suryanagar","tt"];
-var area_lat = [23,24];
-var area_long = [86,87];
+var area_name = ["Surya Nagar","Bomikhal","Bhubaneswar","Cuttack","Jajpur","Bhadrak","Puri","Kalahandi"];
+var area_lat = [20.2698,20.2858,20.2961,20.4625,20.8341,21.0574,19.8135,19.9137];
+var area_long = [85.8131,85.8569,85.8245,85.8830,86.3326,86.4963,85.8312,83.1649];
 
 var user_pos;
 var mymap;
@@ -34,7 +34,7 @@ function showPosition(position) {
             min = distance(position.coords.latitude,position.coords.longitude,area_lat[i],area_long[i]);
         }
     }
-    if(min<20) {
+    /*if(min<20) {
         document.getElementById("distance").style.backgroundColor = "rgb(252, 51, 16)";
     }
     else if(min<50) {
@@ -45,8 +45,8 @@ function showPosition(position) {
     }
     else {
         document.getElementById("distance").style.backgroundColor = "green";
-    }
-    document.getElementById("distance-content").innerHTML = "Someone within "+min+" km from your distance has been detected with corona virus. Stay Safe.";
+    }*/
+    document.getElementById("distance-content").innerHTML = "Someone within "+(Math.round(min * 100) / 100).toFixed(2)+" km from your distance has been detected with corona virus. Stay Safe.";
     document.getElementById("distance").style.display = "block";
 }
 
