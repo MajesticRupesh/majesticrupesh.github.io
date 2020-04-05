@@ -1,4 +1,6 @@
 function loaddata() {
+    getLocation();
+
     // load twitter
     if(window.innerWidth < 1000) {
         document.getElementsByClassName("twitter-amour")[0].style.display = "none";

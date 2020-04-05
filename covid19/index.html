@@ -6,8 +6,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+  
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/accordion.css">
+    <link rel="stylesheet" href="css/modal.css">
     <script src="js/loaddata.js"></script>
     
     <title>Amour Lab</title>
@@ -108,6 +112,22 @@
     <hr size=10>
     <br>
 
+    <!-- Distance from covid tracker -->
+    <div id="distance">
+        <p id="cross" onclick="closedistance()">x</p>
+        <p id="distance-content">Someone within 21 km from your distance has been detected with corona virus. Stay Alert.</p>
+        <p id="covid-map"><button onclick="showmap()">See the map</button></p>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content" id="mapid">
+        <span class="close">&times;</span>
+        <p></p>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <h5>Powered by: <b>Amour Lab Private Limited</b></h5>
@@ -117,5 +137,7 @@
 
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="js/accordion.js"></script>
+    <script src="js/location.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 </html>

@@ -266,3 +266,39 @@ footer > h4 > span {
     border-radius: 10px;
     cursor: pointer;
 }
+
+#distance {
+    position: fixed;
+    top: 150px;
+    right: 10px;
+    height: 300px;
+    width: 250px;
+    background-color: rgb(252, 51, 16);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px black;
+    padding: 10px;
+    display: none;
+}
+
+#cross {
+    position: relative;
+    top: 0px;
+    left: 220px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#distance-content {
+    font-size: 20px;
+    color: white;
+}
+
+#covid-map {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+#covid-map > button {
+    color: cyan;
+}
