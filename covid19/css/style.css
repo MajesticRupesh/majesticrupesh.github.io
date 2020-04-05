@@ -281,11 +281,14 @@ footer > h4 > span {
 }
 
 #cross {
-    position: relative;
+    float: right;
     top: 0px;
-    left: 220px;
-    font-size: 20px;
+    color: black;
+    background-color: white;
+    font-size: 30px;
     cursor: pointer;
+    padding: 8px;
+    margin: auto;
 }
 
 #distance-content {
