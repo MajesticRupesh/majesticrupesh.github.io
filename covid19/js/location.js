@@ -1,6 +1,6 @@
-var area_name = ["suryanagar"];
-var area_lat = [23];
-var area_long = [86];
+var area_name = ["suryanagar","tt"];
+var area_lat = [23,24];
+var area_long = [86,87];
 
 var user_pos;
 var mymap;
