@@ -302,6 +302,15 @@ footer > h4 > span {
     margin: 0;
 }
 
+@media only screen and (max-width:1000px) {
+    #distance-content {
+        font-size: 17px;
+    }
+    #covid-map {
+        font-size: 18px;
+    }
+}
+
 #covid-map > button {
     color: cyan;
     padding: 0;
