@@ -318,3 +318,13 @@ footer > h4 > span {
     color: cyan;
     padding: 0;
 }
+
+.path-region {
+    stroke: rgb(133, 85, 85);
+    stroke-width: 2px;
+}
+
+#district-info {
+    position: relative;
+    top: -30px;
+}

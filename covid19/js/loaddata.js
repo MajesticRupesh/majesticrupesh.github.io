@@ -11,7 +11,7 @@ function loaddata() {
         document.getElementsByClassName("twitter-amour")[0].style.display = "block";
     }
 
-    // load json file
+    // load json file for odisha state
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", "https://api.covid19india.org/data.json", false );
     xmlHttp.send( null );
@@ -27,4 +27,33 @@ function loaddata() {
             document.getElementById("deceased").innerHTML = text.statewise[i].deaths;
         }
     }
+
+
+    // load odisha districts json
+    var xmlHttp1 = new XMLHttpRequest();
+    xmlHttp1.open( "GET", "https://api.covid19india.org/state_district_wise.json", false );
+    xmlHttp1.send( null );
+    var bodytext1 = xmlHttp1.responseText;
+    document.getElementById("Khordha").title = "kk";
+    var odisha =JSON.parse(bodytext1).Odisha.districtData;
+    var district = Object.keys(odisha);
+    for(var i=0; i<district.length; i++) {
+        document.getElementById(district[i]+"1").innerHTML = district[i]+": "+odisha[district[i]].confirmed;
+        if(odisha[district[i]].confirmed > 20) {
+            document.getElementById(district[i]).style.fill = "rgb(162,81,0)";
+        }
+        else if(odisha[district[i]].confirmed > 10) {
+            document.getElementById(district[i]).style.fill = "rgb(247,123,0)";
+        }
+        else if(odisha[district[i]].confirmed > 2) {
+            document.getElementById(district[i]).style.fill = "rgb(255,179,102)";
+        }
+        else {
+            document.getElementById(district[i]).style.fill = "rgb(255,223,191)";
+        }
+    }
+}
+
+function path_clicked(id) {
+    document.getElementById("district-info").innerHTML = document.getElementById(id+"1").innerHTML;
 }
