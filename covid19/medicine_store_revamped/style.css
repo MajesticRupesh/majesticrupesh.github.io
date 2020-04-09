@@ -3,6 +3,7 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
   
 .topnav {
@@ -28,4 +29,9 @@ body {
 
 #cont {
     overflow: overlay;
+    text-align: center;
+}
+
+#cont > img {
+    margin: auto;
 }

@@ -5,6 +5,8 @@ document.getElementById("image4").style.display = "none";
 document.getElementById("image5").style.display = "none";
 document.getElementById("image6").style.display = "none";
 
+var cont = document.getElementById("cont");
+
 $('.path-region').click(function(){
     var index = $('.path-region').index(this);
     console.log(index);
