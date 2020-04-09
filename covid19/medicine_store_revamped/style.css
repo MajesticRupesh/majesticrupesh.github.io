@@ -35,3 +35,9 @@ body {
 #cont > img {
     margin: auto;
 }
+
+#statename {
+    font-size: 40px;
+    color: brown;
+    font-weight: 800;
+}

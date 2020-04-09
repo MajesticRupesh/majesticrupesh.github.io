@@ -9,7 +9,7 @@ var cont = document.getElementById("cont");
 
 $('.path-region').click(function(){
     var index = $('.path-region').index(this);
-    console.log(index);
+    $('#statename').html($('title').eq(index+1).html());
     if(index == 24) {
         //ganjam
         document.getElementById("image1").style.display = "block";
