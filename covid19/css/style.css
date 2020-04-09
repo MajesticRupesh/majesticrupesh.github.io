@@ -319,6 +319,11 @@ footer > h4 > span {
     padding: 0;
 }
 
+#chart {
+    position: relative;
+    top: -50px;
+}
+
 .path-region {
     stroke: rgb(133, 85, 85);
     stroke-width: 2px;
@@ -326,5 +331,5 @@ footer > h4 > span {
 
 #district-info {
     position: relative;
-    top: -30px;
+    top: -50px;
 }
