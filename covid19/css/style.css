@@ -200,23 +200,41 @@ hr {
     }
 }
 
-#points {
+.points {
     text-align: left;
-    padding: 5px 50px;
+    padding: 2px 50px;
 }
 
 .accordion {
     font-size: 23px;
-    padding: 5px 5px;
+    padding: 0px 5px;
+}
+
+#accordian1 {
     background-color:  rgb(183, 214, 255);
 }
+#accordian1:hover {
+    background-color:  rgb(140, 189, 255);
+}
+
+#accordian2 {
+    background-color:  rgb(183, 255, 219);
+}
+#accordian2:hover {
+    background-color:  rgb(140, 255, 198);
+}
+
 
 .accordion:focus {
     outline: none;
 }
 
-.panel {
-    background-color: rgb(203,234,275);
+#panel1 {
+    background-color: rgb(203,234,255);
+}
+
+#panel2 {
+    background-color: rgb(204,255,223);
 }
 
 .panel > p {
@@ -225,7 +243,7 @@ hr {
 }
 
 @media only screen and (max-width: 600px) {
-    #points {
+    .points {
         padding: 5px 10px;
     }
     .accordion {
@@ -332,8 +350,4 @@ footer > h4 > span {
 #district-info {
     position: relative;
     top: -50px;
-}
-
-.vl {
-    
 }
