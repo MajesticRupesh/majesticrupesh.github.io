@@ -40,16 +40,16 @@ function loaddata() {
     for(var i=0; i<district.length; i++) {
         document.getElementById(district[i]+"1").innerHTML = district[i]+": "+odisha[district[i]].confirmed;
         if(odisha[district[i]].confirmed > 20) {
-            document.getElementById(district[i]).style.fill = "rgb(162,81,0)";
+            document.getElementById(district[i]).style.fill = "rgb(255,0,0)";
         }
         else if(odisha[district[i]].confirmed > 10) {
-            document.getElementById(district[i]).style.fill = "rgb(247,123,0)";
+            document.getElementById(district[i]).style.fill = "rgb(255,100,100)";
         }
         else if(odisha[district[i]].confirmed > 2) {
-            document.getElementById(district[i]).style.fill = "rgb(255,179,102)";
+            document.getElementById(district[i]).style.fill = "rgb(255,150,150)";
         }
         else {
-            document.getElementById(district[i]).style.fill = "rgb(255,223,191)";
+            document.getElementById(district[i]).style.fill = "rgb(255,200,200)";
         }
     }
 }
