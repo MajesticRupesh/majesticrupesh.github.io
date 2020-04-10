@@ -1,3 +1,6 @@
+// District table
+var table;
+
 function loaddata() {
     getLocation();
 
@@ -52,9 +55,28 @@ function loaddata() {
         else {
             document.getElementById(district[i]).style.fill = "rgb(255,200,200)";
         }
+
+        table = document.getElementById("district-table");
+        // Create an empty <tr> element and add it to the 1st position of the table:
+        var row = table.insertRow(-1);
+
+        // Insert new cells (<td> elements) at the last position of the "new" <tr> element:
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+
+        // Add some text to the new cells:
+        cell1.innerHTML = district[i];
+        console.log(district[i]);
+        cell2.innerHTML = odisha[district[i]].confirmed;
+        console.log(odisha[district[i]].confirmed);
     }
 }
 
 function path_clicked(id) {
     document.getElementById("district-info").innerHTML = document.getElementById(id+"1").innerHTML;
 }
+
+
+
+
+

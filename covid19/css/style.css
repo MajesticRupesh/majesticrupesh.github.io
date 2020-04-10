@@ -86,6 +86,37 @@ hr {
     }
 }
 
+
+#district-section {
+    width: 100%;
+    text-align: center;
+    
+    top: -20px;
+}
+
+#district-accordion {
+    width: 300px;
+    background-color: rgb(158, 252, 220);
+    text-align: center;
+}
+#district-accordion:hover, #district-accordion:active {
+    background-color: aquamarine;
+}
+
+#district-panel {
+    background-color: #ede7f0;
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+}
+#district-table {
+    margin: 0 auto;
+}
+#district-table > tbody > tr > td {
+    border: 2px solid brown;
+}
+
+
 #odishahelpline {
     width: 100%;
     text-align: center;
@@ -276,14 +307,6 @@ footer {
     footer > h5 {
         font-size: 15px;
     }
-}
-
-footer > h4 > span {
-    background-color: royalblue;
-    color: white;
-    padding: 4px 10px;
-    border-radius: 10px;
-    cursor: pointer;
 }
 
 #distance {
