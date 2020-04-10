@@ -38,6 +38,7 @@ function loaddata() {
     var odisha =JSON.parse(bodytext1).Odisha.districtData;
     var district = Object.keys(odisha);
     for(var i=0; i<district.length; i++) {
+        // set title
         document.getElementById(district[i]+"1").innerHTML = district[i]+": "+odisha[district[i]].confirmed;
         if(odisha[district[i]].confirmed > 20) {
             document.getElementById(district[i]).style.fill = "rgb(255,0,0)";
