@@ -96,11 +96,11 @@ hr {
 
 #district-accordion {
     width: 300px;
-    background-color: rgb(158, 252, 220);
+    background-color:  rgb(183, 214, 255);
     text-align: center;
 }
 #district-accordion:hover, #district-accordion:active {
-    background-color: aquamarine;
+    background-color:  rgb(140, 189, 255);
 }
 
 #district-panel {
@@ -152,6 +152,16 @@ hr {
 
 #moredetails {
     padding:0px 300px;
+}
+
+#more-accordion {
+    background-color:  rgb(183, 214, 255);
+}
+#more-accordion:hover, #more-accordion:active {
+    background-color:  rgb(140, 189, 255);
+}
+#more-accordion-panel {
+    background-color: rgb(203,234,255);
 }
 
 @media only screen and (max-width: 1300px) {
@@ -252,10 +262,10 @@ hr {
 }
 
 #accordian2 {
-    background-color:  rgb(183, 255, 219);
+    background-color:  rgb(183, 214, 255);
 }
 #accordian2:hover {
-    background-color:  rgb(140, 255, 198);
+    background-color:  rgb(140, 189, 255);
 }
 
 
@@ -268,7 +278,7 @@ hr {
 }
 
 #panel2 {
-    background-color: rgb(204,255,223);
+    background-color: rgb(203,234,255);
 }
 
 .panel > p {
