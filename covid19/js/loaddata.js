@@ -2,7 +2,7 @@
 var table;
 
 function loaddata() {
-    getLocation();
+    //getLocation();
 
     // load twitter
     if(window.innerWidth < 1000) {
@@ -64,11 +64,9 @@ function loaddata() {
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
 
-        // Add some text to the new cells:
+        // Add district info to the new cells:
         cell1.innerHTML = district[i];
-        console.log(district[i]);
         cell2.innerHTML = odisha[district[i]].confirmed;
-        console.log(odisha[district[i]].confirmed);
     }
 }
 

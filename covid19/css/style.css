@@ -112,6 +112,9 @@ hr {
 #district-table {
     margin: 0 auto;
 }
+#district-table > tbody > tr > th {
+    border: 2px solid brown;
+}
 #district-table > tbody > tr > td {
     border: 2px solid brown;
 }
