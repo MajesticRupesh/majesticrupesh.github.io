@@ -1,5 +1,6 @@
+function loadchart1() {
 // Create map instance
-var chart = am4core.create("chartdiv", am4maps.MapChart);
+var chart = am4core.create("chartdiv1", am4maps.MapChart);
 
 // Set map definition
 chart.geodata = am4geodata_worldLow;
@@ -79,61 +80,66 @@ polygonTemplate.tooltipText = "{name}";
 ];*/
 
 //console.log(Object(indiaSeries.data)[0].value);
-//console.log(Object(indiaSeries.data));
+console.log(Object(indiaSeries.data));
 
 
 
+    polygonTemplate.tooltipText = "{name}: {value.value.formatNumber('#.0')}";
+    
+    indiaSeries.heatRules.push({
+      property: "fill",
+      target: indiaSeries.mapPolygons.template,
+      min: am4core.color("rgb(255,200,200)"),
+      max: am4core.color("red")
+    });
+    
+    indiaSeries.useGeodata = true;
 
-polygonTemplate.tooltipText = "{name}: {value.value.formatNumber('#.0')}";
-indiaSeries.heatRules.push({
-    property: "fill",
-    target: indiaSeries.mapPolygons.template,
-    min: am4core.color("rgb(255,200,200)"),
-    max: am4core.color("red")
-});
-indiaSeries.useGeodata = true;
+    // add heat legend
+    var heatLegend = chart.chartContainer.createChild(am4maps.HeatLegend);
+    heatLegend.valign = "bottom";
+    heatLegend.align = "left";
+    heatLegend.width = am4core.percent(100);
+    heatLegend.series = indiaSeries;
+    heatLegend.orientation = "horizontal";
+    heatLegend.padding(20, 20, 20, 20);
+    heatLegend.valueAxis.renderer.labels.template.fontSize = 10;
+    heatLegend.valueAxis.renderer.minGridDistance = 40;
 
-// add heat legend
-var heatLegend = chart.chartContainer.createChild(am4maps.HeatLegend);
-heatLegend.valign = "bottom";
-heatLegend.align = "left";
-heatLegend.width = am4core.percent(100);
-heatLegend.series = indiaSeries;
-heatLegend.orientation = "horizontal";
-heatLegend.padding(20, 20, 20, 20);
-heatLegend.valueAxis.renderer.labels.template.fontSize = 10;
-heatLegend.valueAxis.renderer.minGridDistance = 40;
+    indiaSeries.mapPolygons.template.events.on("over", event => {
+      handleHover(event.target);
+    });
 
-indiaSeries.mapPolygons.template.events.on("over", event => {
-  handleHover(event.target);
-});
+    indiaSeries.mapPolygons.template.events.on("hit", event => {
+      handleHover(event.target);
+    });
 
-indiaSeries.mapPolygons.template.events.on("hit", event => {
-  handleHover(event.target);
-});
+    function handleHover(mapPolygon) {
+        if (!isNaN(mapPolygon.dataItem.value)) {
+            console.log(mapPolygon.dataItem.value);
+          heatLegend.valueAxis.showTooltipAt(mapPolygon.dataItem.value);
+        } else {
+            heatLegend.valueAxis.hideTooltip();
+        }
+    }
 
-function handleHover(mapPolygon) {
-  if (!isNaN(mapPolygon.dataItem.value)) {
-      console.log(mapPolygon.dataItem.value);
-    heatLegend.valueAxis.showTooltipAt(mapPolygon.dataItem.value);
-  } else {
-    heatLegend.valueAxis.hideTooltip();
-  }
+    indiaSeries.mapPolygons.template.strokeOpacity = 0.4;
+    indiaSeries.mapPolygons.template.events.on("out", event => {
+        heatLegend.valueAxis.hideTooltip();
+    });
+
+    chart.zoomControl = new am4maps.ZoomControl();
+    chart.zoomControl.valign = "top";
+
+    //indiaSeries push data 
+      indiaSeries.data = [];
+      for(var i=0;i<state_confirm.length;i++) {
+        var fg = {
+          "id":state_code[i],
+          "value":state_confirm[i]
+        }
+        indiaSeries.data.push(fg);
+      }
+    
+    console.log(indiaSeries.data);
 }
-
-indiaSeries.mapPolygons.template.strokeOpacity = 0.4;
-indiaSeries.mapPolygons.template.events.on("out", event => {
-  heatLegend.valueAxis.hideTooltip();
-});
-
-chart.zoomControl = new am4maps.ZoomControl();
-chart.zoomControl.valign = "top";
-
-// life expectancy data
-indiaSeries.data = [
-    { id: "IN-AN", value: 40  },
-    { id: "IN-AP", value: 110  },
-    { id: "IN-AD", value: 400  },
-    { id: "IN-AR", value: 90  },
-    { id: "IN-AS", value: 40  }
-];
