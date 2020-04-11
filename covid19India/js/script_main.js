@@ -58,12 +58,12 @@ function func(event) {
 
         // india chartdiv
         for(var cnt=0; cnt<4; cnt++) {
-            document.getElementsByClassName("amchartclass")[cnt].style.backgroundColor = "rgb(70,70,70)";
+            document.getElementsByClassName("amchartclass")[cnt].style.backgroundColor = "rgb(0,0,0)";
         }
 
         // india heatmap chart
         document.getElementById("india-heatmap").style.color = "white";
-        document.getElementById("india-heatmap").style.backgroundColor = "rgb(70,70,70)";
+        document.getElementById("india-heatmap").style.backgroundColor = "rgb(0,0,0)";
 
         // digital screening section
         $('.screen-section').removeClass('screen-light');
