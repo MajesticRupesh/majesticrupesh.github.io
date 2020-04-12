@@ -73,8 +73,3 @@ function loaddata() {
 function path_clicked(id) {
     document.getElementById("district-info").innerHTML = document.getElementById(id+"1").innerHTML;
 }
-
-
-
-
-

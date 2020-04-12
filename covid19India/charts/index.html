@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <link rel="stylesheet" href="css/statedata.css">
+    <script src="js/statedata.js"></script>
+    <title>Covid19 Statewise Data</title>
+</head>
+<body onload="load_data()"> <!-- load_data() is in statedata.js -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="box-shadow:0px 2px 5px gray">
+        <p class="nav-item">
+            <a style="padding: 0px 5px 0px 0px;" class="nav-link" href="../index.html">HOME</a>
+        </p>
+        <p class="nav-item">
+            <a style="padding: 0px 0px 0px 5px;" class="nav-link" href="#">CHARTS</a>
+        </p>
+    </nav>
+
+    <section id="statedata">
+        <table id="statetable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0,'statetable')">State</th>
+                    <th onclick="sortTableNum(1,'statetable')">Confirmed</th>
+                    <th onclick="sortTableNum(2,'statetable')">Active</th>
+                    <th onclick="sortTableNum(3,'statetable')">Recovered</th>
+                    <th onclick="sortTableNum(4,'statetable')">Deceased</th>
+                </tr>
+            </thead>
+            <tbody id="statebody">
+                <!--<tr>
+                    <td>Maharashtra</td>
+                    <td>44</td>
+                    <td>12</td>
+                    <td>14</td>
+                    <td>16</td>
+                </tr>-->
+            </tbody>
+        </table>
+
+        <table id="districttable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0,'districttable')">District</th>
+                    <th onclick="sortTableNum(1,'districttable')">Confirmed</th>
+                </tr>
+            </thead>
+            <tbody id="districtbody">
+                <!--<tr>
+                    <td>Maharashtra</td>
+                    <td>44</td>
+                    <td>12</td>
+                    <td>14</td>
+                    <td>16</td>
+                </tr>-->
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
