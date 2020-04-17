@@ -6,4 +6,5 @@ function load_data() {
     console.log(my_JSON_object);
     console.log(my_JSON_object.age.question);
     console.log(my_JSON_object.age.question[0]);
+    console.log(my_JSON_object.age.question[0].english);
 }
