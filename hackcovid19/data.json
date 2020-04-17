@@ -1,34 +1,62 @@
 {
     "age": {
-        "question": "How old are you?",
+        "question": [
+            {
+                "english": "How old are you?",
+                "odia": ""
+            }
+        ],
+            
         "options": [
             {
-                "english": "below",
+                "english": "20 and below",
+                "odia": "",
                 "value": "1"
             },
             {
-                "text": "Female",
-                "value": "2"
+                "english": "21-40",
+                "odia": "",
+                "value": "3"
             },
             {
-                "text": "Others",
-                "value": "0"
+                "english": "41-60",
+                "odia": "",
+                "value": "5"
+            },
+            {
+                "english": "60-79",
+                "odia": "",
+                "value": "4"
+            },
+            {
+                "english": "above 80",
+                "odia": "",
+                "value": "2"
             }
-            ]
+        ]
     },
     "gender": {
-        "question": "Please select your gender",
+        "question": [
+            {
+                "english": "Please select your gender",
+                "odia": ""
+            }
+        ],
+
         "options": [
         {
             "text": "Male",
+            "odia": "",
             "value": "1"
         },
         {
             "text": "Female",
+            "odia": "",
             "value": "2"
         },
         {
             "text": "Others",
+            "odia": "",
             "value": "0"
         }
         ]
