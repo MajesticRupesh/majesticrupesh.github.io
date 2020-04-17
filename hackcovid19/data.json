@@ -2,7 +2,7 @@
     "age": {
         "question": [
             {
-                "english": "How old are you?",
+                "english": "Please mention your age",
                 "odia": ""
             }
         ],
@@ -35,192 +35,264 @@
             }
         ]
     },
+
     "gender": {
         "question": [
             {
-                "english": "Please select your gender",
+                "english": "Please mention your gender",
                 "odia": ""
             }
         ],
+            
+        "options": [
+            {
+                "english": "Male",
+                "odia": "",
+                "value": "1"
+            },
+            {
+                "english": "Female",
+                "odia": "",
+                "value": "2"
+            },
+            {
+                "english": "Others",
+                "odia": "",
+                "value": "0"
+            }
+        ]
+    },
 
-        "options": [
-        {
-            "text": "Male",
-            "odia": "",
-            "value": "1"
-        },
-        {
-            "text": "Female",
-            "odia": "",
-            "value": "2"
-        },
-        {
-            "text": "Others",
-            "odia": "",
-            "value": "0"
-        }
-        ]
-    },
     "temperature": {
-        "question": "Please let us know your current body temperature in degree Fahrenheit (Normal body temperature is 98.6°F):",
+        "question": [
+            {
+                "english": "What is your body temperature?",
+                "odia": ""
+            }
+        ],
+            
         "options": [
-        {
-            "text": "Normal (96°F-98.6°F)",
-            "value": "0"
-        },
-        {
-            "text": "Fever (98.6°F-102°F)",
-            "value": "1"
-        },
-        {
-            "text": "High Fever (>102°F)",
-            "value": "2"
-        },
-        {
-            "text": "Don’t know",
-            "value": "0"
-        }
+            {
+                "english": "Normal (96°F-98.6°F)",
+                "odia": "",
+                "value": "0"
+            },
+            {
+                "english": "Fever (98.6°F-102°F)",
+                "odia": "",
+                "value": "1"
+            },
+            {
+                "english": "High Fever (>102°F)",
+                "odia": "",
+                "value": "2"
+            }
         ]
     },
-  "symptoms": {
-    "question": "Are you experiencing any of the symptoms below (mark all those applicable)",
-    "options": [
-      {
-        "text": "Dry Cough",
-        "value": "0"
-      },
-      {
-        "text": "Loss or diminished sense of smell",
-        "value": "5"
-      },
-      {
-        "text": "Sore Throat",
-        "value": "3"
-      },
-      {
-        "text": "Weakness",
-        "value": "4"
-      },
-      {
-        "text": "Change in Appetite",
-        "value": "6"
-      },
-      {
-        "text": "None of these",
-        "value": ""
-      }
-    ]
-  },
-  "additionalSymptoms": {
-    "question": "Additionally, please verify if you are experiencing any of the symptoms below (mark all those applicable)",
-    "options": [
-      {
-        "text": "Moderate to Severe Cough",
-        "value": "0"
-      },
-      {
-        "text": "Feeling Breathless",
-        "value": "1"
-      },
-      {
-        "text": "Difficulty in Breathing",
-        "value": "3"
-      },
-      {
-        "text": "Drowsiness",
-        "value": "4"
-      },
-      {
-        "text": "Persistant Pain and Pressure in Chest",
-        "value": "5"
-      },
-      {
-        "text": "Severe Weakness",
-        "value": "6"
-      },
-      {
-        "text": "None of these",
-        "value": ""
-      }
-    ]
-  },
-  "exposureHistory": {
-    "question": "Please select your travel and exposure details",
-    "options": [
-      {
-        "text": "No Travel History",
-        "value": "0"
-      },
-      {
-        "text": "No contact with anyone with Symptoms",
-        "value": "1"
-      },
-      {
-        "text": "History of travel or meeting in affected geographical area in last 14 days",
-        "value": "2"
-      },
-      {
-        "text": "Close Contact with confirmed COVID in last 14 days",
-        "value": "3"
-      }
-    ]
-  },
-  "underlyingConditions": {
-    "question": "Do you have a history of any of these conditions (mark all those applicable)",
-    "options": [
-      {
-        "text": "Diabetes",
-        "value": "0"
-      },
-      {
-        "text": "High Blood Pressure",
-        "value": "1"
-      },
-      {
-        "text": "Heart Disease",
-        "value": "2"
-      },
-      {
-        "text": "Kidney Disease",
-        "value": "3"
-      },
-      {
-        "text": "Lung disease",
-        "value": "4"
-      },
-      {
-        "text": "Stroke",
-        "value": "6"
-      },
-      {
-        "text": "Reduced Immunity",
-        "value": "7"
-      },
-      {
-        "text": "None of these",
-        "value": ""
-      }
-    ]
-  },
-  "progress": {
-    "question": "How have your symptoms progressed over the last 48 hrs?",
-    "options": [
-      {
-        "text": "Improved",
-        "value": "0"
-      },
-      {
-        "text": "No Change",
-        "value": "1"
-      },
-      {
-        "text": "Worsened",
-        "value": "2"
-      },
-      {
-        "text": "Worsened Considerably",
-        "value": "3"
-      }
-    ]
-  }
+
+    "symptoms": {
+        "question": [
+            {
+                "english": "Are you experiencing any of these issues",
+                "odia": ""
+            }
+        ],
+            
+        "options": [
+            {
+                "english": "Dry cough",
+                "odia": "",
+                "value": "0"
+            },
+            {
+                "english": "Diminished sense of smell",
+                "odia": "",
+                "value": "5"
+            },
+            {
+                "english": "Sore throat",
+                "odia": "",
+                "value": "3"
+            },
+            {
+                "english": "Weakness",
+                "odia": "",
+                "value": "4"
+            },
+            {
+                "english": "Change in appetite",
+                "odia": "",
+                "value": "6"
+            },
+            {
+                "english": "None of these",
+                "odia": "",
+                "value": "0"
+            }
+        ]
+    },
+
+    "additionalsymptoms": {
+        "question": [
+            {
+                "english": "Are you having these symptoms",
+                "odia": ""
+            }
+        ],
+            
+        "options": [
+            {
+                "english": "Moderate to severe cough",
+                "odia": "",
+                "value": "0"
+            },
+            {
+                "english": "Feeling breathless",
+                "odia": "",
+                "value": "1"
+            },
+            {
+                "english": "difficulty in breathing",
+                "odia": "",
+                "value": "3"
+            },
+            {
+                "english": "drowsiness",
+                "odia": "",
+                "value": "4"
+            },
+            {
+                "english": "pain in chest",
+                "odia": "",
+                "value": "5"
+            },
+            {
+                "english": "Severe Weakness",
+                "odia": "",
+                "value": "6"
+            },
+            {
+                "english": "None of these",
+                "odia": "",
+                "value": "0"
+            }
+        ]
+    },
+
+    "exposurehistory": {
+        "question": [
+            {
+                "english": "Please tell me about your travel history",
+                "odia": ""
+            }
+        ],
+            
+        "options": [
+            {
+                "english": "no travel history",
+                "odia": "",
+                "value": "0"
+            },
+            {
+                "english": "went to some safe private meeting",
+                "odia": "",
+                "value": "1"
+            },
+            {
+                "english": "went to some public place in last 14 days",
+                "odia": "",
+                "value": "2"
+            },
+            {
+                "english": "confirmed contact with Covid in last 14 days",
+                "odia": "",
+                "value": "3"
+            }
+        ]
+    },
+
+    "underlyingconditions": {
+        "question": [
+            {
+                "english": "Do you have a history of these conditions",
+                "odia": ""
+            }
+        ],
+            
+        "options": [
+            {
+                "english": "Diabetes",
+                "odia": "",
+                "value": "0"
+            },
+            {
+                "english": "High Blood Pressure",
+                "odia": "",
+                "value": "1"
+            },
+            {
+                "english": "Heart Disease",
+                "odia": "",
+                "value": "2"
+            },
+            {
+                "english": "Kidney disease",
+                "odia": "",
+                "value": "3"
+            },
+            {
+                "english": "Lung Disease",
+                "odia": "",
+                "value": "4"
+            },
+            {
+                "english": "Stroke",
+                "odia": "",
+                "value": "6"
+            },
+            {
+                "english": "Reduced Immunity",
+                "odia": "",
+                "value": "7"
+            },
+            {
+                "english": "None of these",
+                "odia": "",
+                "value": "0"
+            }
+        ]
+    },
+
+    "progress": {
+        "question": [
+            {
+                "english": "How have your symptoms progressed over the last 48 hrs?",
+                "odia": ""
+            }
+        ],
+            
+        "options": [
+            {
+                "english": "Improved",
+                "odia": "",
+                "value": "0"
+            },
+            {
+                "english": "No change",
+                "odia": "",
+                "value": "1"
+            },
+            {
+                "english": "Worsened",
+                "odia": "",
+                "value": "2"
+            },
+            {
+                "english": "Worsened considerably",
+                "odia": "",
+                "value": "3"
+            }
+        ]
+    }
+    
 }
