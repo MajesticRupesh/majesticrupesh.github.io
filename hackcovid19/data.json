@@ -1,0 +1,186 @@
+{
+    "age": {
+        "question": "How old are you?",
+        "placeholder": "Your age in years",
+        "buttonText": "Done"
+    },
+    "gender": {
+        "question": "Please select your gender",
+        "options": [
+        {
+            "text": "Male",
+            "value": "1"
+        },
+        {
+            "text": "Female",
+            "value": "2"
+        },
+        {
+            "text": "Others",
+            "value": "0"
+        }
+        ]
+    },
+    "temperature": {
+        "question": "Please let us know your current body temperature in degree Fahrenheit (Normal body temperature is 98.6°F):",
+        "options": [
+        {
+            "text": "Normal (96°F-98.6°F)",
+            "value": "0"
+        },
+        {
+            "text": "Fever (98.6°F-102°F)",
+            "value": "1"
+        },
+        {
+            "text": "High Fever (>102°F)",
+            "value": "2"
+        },
+        {
+            "text": "Don’t know",
+            "value": "0"
+        }
+        ]
+    },
+  "symptoms": {
+    "question": "Are you experiencing any of the symptoms below (mark all those applicable)",
+    "options": [
+      {
+        "text": "Dry Cough",
+        "value": "0"
+      },
+      {
+        "text": "Loss or diminished sense of smell",
+        "value": "5"
+      },
+      {
+        "text": "Sore Throat",
+        "value": "3"
+      },
+      {
+        "text": "Weakness",
+        "value": "4"
+      },
+      {
+        "text": "Change in Appetite",
+        "value": "6"
+      },
+      {
+        "text": "None of these",
+        "value": ""
+      }
+    ]
+  },
+  "additionalSymptoms": {
+    "question": "Additionally, please verify if you are experiencing any of the symptoms below (mark all those applicable)",
+    "options": [
+      {
+        "text": "Moderate to Severe Cough",
+        "value": "0"
+      },
+      {
+        "text": "Feeling Breathless",
+        "value": "1"
+      },
+      {
+        "text": "Difficulty in Breathing",
+        "value": "3"
+      },
+      {
+        "text": "Drowsiness",
+        "value": "4"
+      },
+      {
+        "text": "Persistant Pain and Pressure in Chest",
+        "value": "5"
+      },
+      {
+        "text": "Severe Weakness",
+        "value": "6"
+      },
+      {
+        "text": "None of these",
+        "value": ""
+      }
+    ]
+  },
+  "exposureHistory": {
+    "question": "Please select your travel and exposure details",
+    "options": [
+      {
+        "text": "No Travel History",
+        "value": "0"
+      },
+      {
+        "text": "No contact with anyone with Symptoms",
+        "value": "1"
+      },
+      {
+        "text": "History of travel or meeting in affected geographical area in last 14 days",
+        "value": "2"
+      },
+      {
+        "text": "Close Contact with confirmed COVID in last 14 days",
+        "value": "3"
+      }
+    ]
+  },
+  "underlyingConditions": {
+    "question": "Do you have a history of any of these conditions (mark all those applicable)",
+    "options": [
+      {
+        "text": "Diabetes",
+        "value": "0"
+      },
+      {
+        "text": "High Blood Pressure",
+        "value": "1"
+      },
+      {
+        "text": "Heart Disease",
+        "value": "2"
+      },
+      {
+        "text": "Kidney Disease",
+        "value": "3"
+      },
+      {
+        "text": "Lung disease",
+        "value": "4"
+      },
+      {
+        "text": "Stroke",
+        "value": "6"
+      },
+      {
+        "text": "Reduced Immunity",
+        "value": "7"
+      },
+      {
+        "text": "None of these",
+        "value": ""
+      }
+    ]
+  },
+  "progress": {
+    "question": "How have your symptoms progressed over the last 48 hrs?",
+    "options": [
+      {
+        "text": "Improved",
+        "value": "0"
+      },
+      {
+        "text": "No Change",
+        "value": "1"
+      },
+      {
+        "text": "Worsened",
+        "value": "2"
+      },
+      {
+        "text": "Worsened Considerably",
+        "value": "3"
+      }
+    ]
+  }
+}
