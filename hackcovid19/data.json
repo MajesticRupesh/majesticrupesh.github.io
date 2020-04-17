@@ -73,12 +73,12 @@
             
         "options": [
             {
-                "english": "Normal (96°F-98.6°F)",
+                "english": "Normal (96°F-99°F)",
                 "odia": "",
                 "value": "0"
             },
             {
-                "english": "Fever (98.6°F-102°F)",
+                "english": "Fever (99°F-102°F)",
                 "odia": "",
                 "value": "1"
             },
