@@ -1,8 +1,20 @@
 {
     "age": {
         "question": "How old are you?",
-        "placeholder": "Your age in years",
-        "buttonText": "Done"
+        "options": [
+            {
+                "english": "below",
+                "value": "1"
+            },
+            {
+                "text": "Female",
+                "value": "2"
+            },
+            {
+                "text": "Others",
+                "value": "0"
+            }
+            ]
     },
     "gender": {
         "question": "Please select your gender",
