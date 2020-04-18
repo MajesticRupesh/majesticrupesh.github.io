@@ -100,7 +100,7 @@ function ready(error, MAP, DATA, LOC) {
     // @TODO: Format the population values to put commas
     tooltip.classed('hidden', false)
         .attr('style', 'left:' + (mouse[0] + 15) +
-                'px; top:' + (mouse[1] + 40) + 'px')
+                'px; top:' + (mouse[1] + 90) + 'px')
         .html(ward_names[d.properties.name] + ": "+ prop_value[d.properties.name].toLocaleString());
     })
     .on('mouseout', function() {
