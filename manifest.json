@@ -1,0 +1,11 @@
+{
+    "name": "Mumbai Heatmap",
+    "short_name": "Mumbai Heat",
+    "icons": [{
+      }],
+    "lang": "en-US",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "white",
+    "theme_color": "white"
+  }
