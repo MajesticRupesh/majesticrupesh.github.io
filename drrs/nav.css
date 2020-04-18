@@ -4,7 +4,7 @@ nav {
     width: 100%;
     top: 0;
     height: 70px;
-    background-color: black;
+    background-color: white;
     box-shadow: 0px 0px 10px 5px rgb(184, 184, 184);
     z-index: 10;
 }
@@ -12,7 +12,6 @@ nav {
 nav > img {
     padding: 5px 10px;
 }
-
 
 svg {
     position: relative;
