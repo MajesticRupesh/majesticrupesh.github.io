@@ -55,13 +55,24 @@ function ready(error, MAP, DATA, LOC) {    // REPLACE REF WITH DATA
 
     var prop_value = {};
     var percent_value = {};
+    var prop_value_multiply = {};
     DATA.forEach(function(d) {
         prop_value[d.Ward] = 0;
-        if(d[property1]) prop_value[d.Ward] += parseInt(d[property1]*3.6);
-        if(d[property2]) prop_value[d.Ward] += parseInt(d[property2]*2.6);
-        if(d[property3]) prop_value[d.Ward] += parseInt(d[property3]*1.5);
+        prop_value_multiply[d.Ward] = 0;
+        if(d[property1]){
+            prop_value[d.Ward] += parseInt(d[property1]);
+            prop_value_multiply[d.Ward] += prop_value[d.Ward]*3.6;
+        } 
+        if(d[property2]){
+            prop_value[d.Ward] += parseInt(d[property2]);
+            prop_value_multiply[d.Ward] += prop_value[d.Ward]*2.6;
+        } 
+        if(d[property3]){
+            prop_value[d.Ward] += parseInt(d[property3]);
+            prop_value_multiply[d.Ward] += prop_value[d.Ward]*1.5;
+        } 
         
-        percent_value[d.Ward] = prop_value[d.Ward]/population[d.Ward];
+        percent_value[d.Ward] = prop_value_multiply[d.Ward]/population[d.Ward];
         console.log(ward_names[d.Ward] + " " + ward_id[d.Ward] + " " + prop_value[d.Ward] + " " + population[d.Ward] + " " + percent_value[d.Ward]);
     });
 
