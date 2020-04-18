@@ -1,4 +1,4 @@
-var width = 1000, height = 700;
+var width = 960, height = 650;
 
 // MERCATOR
 var projection = d3.geo.mercator()
@@ -14,22 +14,13 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-// Title inside the Map
-svg.append("text")
-    .attr("x", "50")             
-    .attr("y", "29")
-    .attr("text-anchor", "start")  
-    .style("font-size", "16px") 
-    .style("text-decoration", "none")  
-    .text("Mumbai Ward Level Map"); 
-
 // Div for the tooltip 
 var tooltip = d3.select('body').append('div')
     .attr('class', 'hidden tooltip');
 
 queue()
     .defer(d3.json, 'Mumbai_Topojson.topojson')               
-    .defer(d3.csv, 'Facilities_in_Mumbai_COVID_19_Cases.csv') // REPLACE REF WITH DATA
+    .defer(d3.csv, 'Facilities_in_Mumbai_COVID_19_Cases.csv')
     .defer(d3.csv,'input_file_v1_dashboard.csv')
     .await(ready);
 
@@ -38,7 +29,7 @@ var property1 = 'Number of Cases- Very Congested Area';
 var property2 = 'Number of Cases- Medium Congested';
 var property3 = 'Number of Cases- Standalone Structure';
 
-function ready(error, MAP, DATA, LOC) {    // REPLACE REF WITH DATA
+function ready(error, MAP, DATA, LOC) {
     if (error) throw error; 
     
     // Mumbai data
@@ -71,16 +62,19 @@ function ready(error, MAP, DATA, LOC) {    // REPLACE REF WITH DATA
             prop_value[d.Ward] += parseInt(d[property3]);
             prop_value_multiply[d.Ward] += prop_value[d.Ward]*1.5;
         } 
+
+        if(d[property1]==null || d[property2]==null || d[property3]==null || d[property1]==0 || d[property2]==0 || d[property3]==0)
+            prop_value_multiply[d.Ward] = 0;
         
         percent_value[d.Ward] = prop_value_multiply[d.Ward]/population[d.Ward];
         console.log(ward_names[d.Ward] + " " + ward_id[d.Ward] + " " + prop_value[d.Ward] + " " + population[d.Ward] + " " + percent_value[d.Ward]);
     });
 
     svg.append("g")
-    .attr("class", "mumbai")
-    .selectAll("path")
-    .data(mumbai.features)
-    .enter()
+        .attr("class", "mumbai")
+        .selectAll("path")
+        .data(mumbai.features)
+        .enter()
         .append("path")
         .attr("class", "ward")
         .attr("d", path)
@@ -102,16 +96,16 @@ function ready(error, MAP, DATA, LOC) {    // REPLACE REF WITH DATA
             var mouse = d3.mouse(svg.node()).map(function(d) {
                 return parseInt(d);
         });
-        // Un hides the div for the tooltip and the positions it Also adds the html content
-        // @TODO: Format the population values to put commas
-        tooltip.classed('hidden', false)
-            .attr('style', 'left:' + (mouse[0] + 15) +
-                    'px; top:' + (mouse[1] - 35) + 'px')
-            .html(ward_names[d.properties.name] + ": "+ prop_value[d.properties.name].toLocaleString());
-        })
-        .on('mouseout', function() {
-            tooltip.classed('hidden', true);
-        });
+    // Un hides the div for the tooltip and the positions it Also adds the html content
+    // @TODO: Format the population values to put commas
+    tooltip.classed('hidden', false)
+        .attr('style', 'left:' + (mouse[0] + 15) +
+                'px; top:' + (mouse[1] + 40) + 'px')
+        .html(ward_names[d.properties.name] + ": "+ prop_value[d.properties.name].toLocaleString());
+    })
+    .on('mouseout', function() {
+        tooltip.classed('hidden', true);
+    });
 
     //Borders 
     svg.append("path")
@@ -119,13 +113,22 @@ function ready(error, MAP, DATA, LOC) {    // REPLACE REF WITH DATA
         .attr("class", "mumbai-boundary")
         .attr("d", path);  
 
+    var borderPath = svg.append("rect")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("height", height)
+        .attr("width", width)
+        .style("stroke", 'black')
+        .style("fill", "none")
+        .style("stroke-width", 2);
+
     // LEGEND OF MAP
-    svg.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "red")
-    svg.append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "orange")
-    svg.append("circle").attr("cx",200).attr("cy",190).attr("r", 6).style("fill", "blue")
-    svg.append("circle").attr("cx",200).attr("cy",220).attr("r", 6).style("fill", "green")
-    svg.append("text").attr("x", 220).attr("y", 130).text(">0.02%").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 220).attr("y", 160).text("0.01% - 0.02%").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 220).attr("y", 190).text("0% - 0.01%").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 220).attr("y", 220).text("0%").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("circle").attr("cx",50).attr("cy",130).attr("r", 6).style("fill", "red")
+    svg.append("circle").attr("cx",50).attr("cy",160).attr("r", 6).style("fill", "orange")
+    svg.append("circle").attr("cx",50).attr("cy",190).attr("r", 6).style("fill", "blue")
+    svg.append("circle").attr("cx",50).attr("cy",220).attr("r", 6).style("fill", "green")
+    svg.append("text").attr("x", 70).attr("y", 130).text(">0.02%").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 70).attr("y", 160).text("0.01% - 0.02%").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 70).attr("y", 190).text("0% - 0.01%").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 70).attr("y", 220).text("0%").style("font-size", "15px").attr("alignment-baseline","middle")
 };
