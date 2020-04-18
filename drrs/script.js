@@ -27,9 +27,6 @@ svg.append("text")
 var tooltip = d3.select('body').append('div')
     .attr('class', 'hidden tooltip');
 
-// Defining the scale
-var linear = d3.scale.linear().range(["beige", "red"]);
-
 queue()
     .defer(d3.json, 'Mumbai_Topojson.topojson')               
     .defer(d3.csv, 'Facilities_in_Mumbai_COVID_19_Cases.csv') // REPLACE REF WITH DATA
@@ -37,39 +34,36 @@ queue()
     .await(ready);
 
 // The default property to be mapped
-var property = 'Number of Cases- Very Congested Area';
-
-function calculate_domain(data, property){
-
-    var d_prop = data.map(function(d){ return parseInt(d[property]);});
-    var ret_value = {};
-
-    ret_value['min'] = d3.min(d_prop);
-    ret_value['max'] = d3.max(d_prop);
-    return ret_value;
-};
-
+var property1 = 'Number of Cases- Very Congested Area';
+var property2 = 'Number of Cases- Medium Congested';
+var property3 = 'Number of Cases- Standalone Structure';
 
 function ready(error, MAP, DATA, LOC) {    // REPLACE REF WITH DATA
     if (error) throw error; 
-
-    // Set domain for the scales
-    var dom = calculate_domain(DATA, property);
-    linear.domain([dom['min'], dom['max']]);
-
+    
     // Mumbai data
     var mumbai = topojson.feature(MAP, MAP.objects.Mumbai);  
 
     var ward_id = {};
     DATA.forEach(function(d) { ward_id[d.Ward] = d.Ward})
 
+    var population = {};
+    LOC.forEach(function(d) { population[d.Ward] = parseInt(d.Population)})
+
     var ward_names = {};
-    LOC.forEach(function(d) { ward_names[d.Ward] = d["Ward location"]; console.log(d["Ward location"]);});
-    //console.log(d.Ward);
+    LOC.forEach(function(d) { ward_names[d.Ward] = d["Ward location"]});
 
     var prop_value = {};
-    DATA.forEach(function(d) { prop_value[d.Ward] = +parseInt(d[property]); });
-    //console.log(prop_value);
+    var percent_value = {};
+    DATA.forEach(function(d) {
+        prop_value[d.Ward] = 0;
+        if(d[property1]) prop_value[d.Ward] += parseInt(d[property1]);
+        if(d[property2]) prop_value[d.Ward] += parseInt(d[property2]);
+        if(d[property3]) prop_value[d.Ward] += parseInt(d[property3]);
+        //prop_value[d.Ward] = parseInt(d[property1]) + parseInt(d[property2]) + parseInt(d[property3]);
+        percent_value[d.Ward] = prop_value[d.Ward]/population[d.Ward];
+        console.log(ward_names[d.Ward] + " " + ward_id[d.Ward] + " " + prop_value[d.Ward] + " " + population[d.Ward] + " " + percent_value[d.Ward]);
+    });
 
     svg.append("g")
     .attr("class", "mumbai")
@@ -79,14 +73,23 @@ function ready(error, MAP, DATA, LOC) {    // REPLACE REF WITH DATA
         .append("path")
         .attr("class", "ward")
         .attr("d", path)
-    //    Try out the different scales.
+
+        // WARD FILLING STYLE
         .style("fill", function(d) { 
-        return linear(prop_value[d.properties.name]); 
-        }) // population
+            if(percent_value[d.properties.name] == 0)
+                return "green";
+            else if(percent_value[d.properties.name] > 0 && percent_value[d.properties.name] < 0.0001)
+                return "blue";
+            else if(percent_value[d.properties.name] >=0.0001 && percent_value[d.properties.name] < 0.0002)
+                return "orange";
+            else if(percent_value[d.properties.name] >= 0.0002)
+                return "red";
+        
+        })
         .on('mousemove', function(d) {
-        // Gets coordinates for the Mouse pointer
-        var mouse = d3.mouse(svg.node()).map(function(d) {
-            return parseInt(d);
+            // Gets coordinates for the Mouse pointer
+            var mouse = d3.mouse(svg.node()).map(function(d) {
+                return parseInt(d);
         });
         // Un hides the div for the tooltip and the positions it Also adds the html content
         // @TODO: Format the population values to put commas
@@ -105,15 +108,13 @@ function ready(error, MAP, DATA, LOC) {    // REPLACE REF WITH DATA
         .attr("class", "mumbai-boundary")
         .attr("d", path);  
 
-    // Legend 
-    svg.append("g")
-        .attr("class", "legendLinear")
-        .attr("transform", "translate(50, 100)");
-
-    var legendLinear = d3.legend.color()
-                                .scale(linear)
-                                .title("Population Density / Sq. KM (2011)")
-                                .labelFormat(d3.format(",.0f"));
-    svg.select(".legendLinear")
-        .call(legendLinear);
+    // LEGEND OF MAP
+    svg.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "red")
+    svg.append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "orange")
+    svg.append("circle").attr("cx",200).attr("cy",190).attr("r", 6).style("fill", "blue")
+    svg.append("circle").attr("cx",200).attr("cy",220).attr("r", 6).style("fill", "green")
+    svg.append("text").attr("x", 220).attr("y", 130).text(">0.02%").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 220).attr("y", 160).text("0.01% - 0.02%").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 220).attr("y", 190).text("0% - 0.01%").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 220).attr("y", 220).text("0%").style("font-size", "15px").attr("alignment-baseline","middle")
 };
