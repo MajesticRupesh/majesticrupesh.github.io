@@ -16,7 +16,7 @@ nav > img {
 h1 {
     position: relative;
     top:60px;
-    left:20px;
+    padding-left: 20px;
 }
 
 svg {
