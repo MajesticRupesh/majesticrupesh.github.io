@@ -1,4 +1,4 @@
-var width = 1060, height = 800;
+var width = 1000, height = 700;
 
 // MERCATOR
 var projection = d3.geo.mercator()
@@ -21,30 +21,28 @@ svg.append("text")
     .attr("text-anchor", "start")  
     .style("font-size", "16px") 
     .style("text-decoration", "none")  
-    .text("Mumbai Ward Level Map");
+    .text("Mumbai Ward Level Map"); 
 
 // Div for the tooltip 
 var tooltip = d3.select('body').append('div')
     .attr('class', 'hidden tooltip');
 
 // Defining the scale
-var linear = d3.scale.linear()
-            .range(["beige", "red"]);
-
+var linear = d3.scale.linear().range(["beige", "red"]);
 
 queue()
     .defer(d3.json, 'Mumbai_Topojson.topojson')               
-    .defer(d3.csv, 'ward_level_collated.csv') // REPLACE REF WITH DATA
+    .defer(d3.csv, 'Facilities_in_Mumbai_COVID_19_Cases.csv') // REPLACE REF WITH DATA
+    .defer(d3.csv,'input_file_v1_dashboard.csv')
     .await(ready);
 
 // The default property to be mapped
-var property = 'TOT_P_DEN';
+var property = 'Number of Cases- Very Congested Area';
 
 function calculate_domain(data, property){
 
     var d_prop = data.map(function(d){ return parseInt(d[property]);});
     var ret_value = {};
-
 
     ret_value['min'] = d3.min(d_prop);
     ret_value['max'] = d3.max(d_prop);
@@ -52,7 +50,7 @@ function calculate_domain(data, property){
 };
 
 
-function ready(error, MAP, DATA) {    // REPLACE REF WITH DATA
+function ready(error, MAP, DATA, LOC) {    // REPLACE REF WITH DATA
     if (error) throw error; 
 
     // Set domain for the scales
@@ -63,13 +61,14 @@ function ready(error, MAP, DATA) {    // REPLACE REF WITH DATA
     var mumbai = topojson.feature(MAP, MAP.objects.Mumbai);  
 
     var ward_id = {};
-    DATA.forEach(function(d) { ward_id[d.Ward_Alphabet] = d.Ward_Alphabet})
+    DATA.forEach(function(d) { ward_id[d.Ward] = d.Ward})
 
     var ward_names = {};
-    DATA.forEach(function(d) { ward_names[d.Ward_Alphabet] = d.Ward_Names})
+    LOC.forEach(function(d) { ward_names[d.Ward] = d["Ward location"]; console.log(d["Ward location"]);});
+    //console.log(d.Ward);
 
     var prop_value = {};
-    DATA.forEach(function(d) { prop_value[d.Ward_Alphabet] = +parseInt(d[property]); });
+    DATA.forEach(function(d) { prop_value[d.Ward] = +parseInt(d[property]); });
     //console.log(prop_value);
 
     svg.append("g")
