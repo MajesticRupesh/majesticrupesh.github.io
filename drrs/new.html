@@ -62,20 +62,6 @@
         shape-rendering:crispEdges;
       }
 
-      
-       
-       
-      .q0-9 { fill:rgb(247,251,255); }
-      .q1-9 { fill:rgb(222,235,247); }
-      .q2-9 { fill:rgb(198,219,239); }
-      .q3-9 { fill:rgb(158,202,225); }
-      .q4-9 { fill:rgb(107,174,214); }
-      .q5-9 { fill:rgb(66,146,198); }
-      .q6-9 { fill:rgb(33,113,181); }
-      .q7-9 { fill:rgb(8,81,156); }
-      .q8-9 { fill:rgb(8,48,107); }
-      
-
     </style>
 
     <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
@@ -83,11 +69,9 @@
   </head>
 
   <body>
-  <!--<div id="mapcanvas" ></div> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
     <script src="https://d3js.org/queue.v1.min.js"></script>
-    <!-- Legend Library http://d3-legend.susielu.com/ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.10.0/d3-legend.js"></script>
 
 
@@ -98,17 +82,6 @@
       var width = 1060,
           height = 800;
 
-      // PROJECTION   
-      /*
-      A Different projection which doesn't work very well for Mumbai
-      var projection = d3.geo.conicConformal() 
-          .rotate([0, 0, 0])  
-          .center([72.8777, 19.089]) // Approximately the coordinates of Mumbai (slightly North)
-          .scale(90000)
-          .parallels([37.06666666666667, 38.43333333333333])
-          .translate([width / 2, height / 2])
-          .precision(.1);
-      */
       // MERCATOR
       var projection = d3.geo.mercator()
           .center([72.8777, 19.089]) // Approximately the coordinates of Mumbai (slightly North)
@@ -141,23 +114,6 @@
                    .range(["beige", "red"]);
 
 
-
-      /*
-      // Linear 2
-      // Excluding outliers (but please check the data first)
-      var quantize = d3.scale.quantize()
-                        .range(d3.range(9).map(function(i) { return "q" + i +"-9";}))
-      var linear2 = d3.scale.linear()
-                   .range(["red", "white", "green"]);
-
-      // A scale to try with different thresholds. May be interesting to do this
-      var threshold = d3.scale.threshold()
-                   .domain([0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
-                   .range(["#8e0152", "#c51b7d", "#de77ae", "#f1b6da", "#fde0ef", "#f7f7f7", "#e6f5d0", "#b8e186", "#7fbc41", "#4d9221", "#276419"]);
-      */
-
-      // Using the queue library. We may be able to replace this with something that d3js 
-      // do on its own
       queue()
             .defer(d3.json, 'Mumbai_Topojson.topojson')               
             .defer(d3.csv, 'ward_level_collated.csv') // REPLACE REF WITH DATA
@@ -166,14 +122,6 @@
       // The default property to be mapped
       var property = 'TOT_P_DEN';
 
-      /**
-      *
-      * Finds the min and max for the property in the data. 
-      * Also assumes that the property has integer values. 
-      * @param data
-      * @param property
-      * @return 
-      */
       function calculate_domain(data, property){
 
         var d_prop = data.map(function(d){ return parseInt(d[property]);});
@@ -185,17 +133,8 @@
         return ret_value;
       };
 
-      /**
-      *
-      * The ready function which after the data is loaded creates all the elements
-      * etc. 
-      *
-      */
       function ready(error, MAP, DATA) {    // REPLACE REF WITH DATA
         if (error) throw error; 
-
-        //console.log(MAP)   // CHECK YOUR MAP
-        //console.log(DATA)  // CHECK YOUR DATA
 
         // Set domain for the scales
         var dom = calculate_domain(DATA, property);
@@ -264,7 +203,6 @@
           .call(legendLinear);
 
       };
-
 
     </script>
   </body>
