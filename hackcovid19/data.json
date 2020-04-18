@@ -14,24 +14,24 @@
                 "value": "1"
             },
             {
-                "english": "21-40",
+                "english": "21-30",
+                "odia": "",
+                "value": "2"
+            },
+            {
+                "english": "30-50",
                 "odia": "",
                 "value": "3"
             },
             {
-                "english": "41-60",
+                "english": "50-70",
                 "odia": "",
                 "value": "5"
             },
             {
-                "english": "60-79",
+                "english": "above 70",
                 "odia": "",
                 "value": "4"
-            },
-            {
-                "english": "above 80",
-                "odia": "",
-                "value": "2"
             }
         ]
     },
