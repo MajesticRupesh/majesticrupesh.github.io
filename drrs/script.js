@@ -67,7 +67,6 @@ function ready(error, MAP, DATA, LOC) {
             prop_value_multiply[d.Ward] = 0;
         
         percent_value[d.Ward] = prop_value_multiply[d.Ward]/population[d.Ward];
-        console.log(ward_names[d.Ward] + " " + ward_id[d.Ward] + " " + prop_value[d.Ward] + " " + population[d.Ward] + " " + percent_value[d.Ward]);
     });
 
     svg.append("g")
