@@ -106,12 +106,13 @@ function ready(error, MAP, DATA, LOC) {
         tooltip.classed('hidden', true);
     });
 
-    //Borders 
+    // Borders of state wards
     svg.append("path")
         .datum(topojson.mesh(MAP, MAP.objects.Mumbai, function(a, b) { return a !== b; }))
         .attr("class", "mumbai-boundary")
         .attr("d", path);  
 
+    // Borders of The rectangle
     var borderPath = svg.append("rect")
         .attr("x", 0)
         .attr("y", 0)
