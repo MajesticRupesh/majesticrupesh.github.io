@@ -1,5 +1,6 @@
 // load this function when body loads
 var data_json;  // keeping this var public
+var state_name = [];
 var state_code = [];    // holds statecode in format "IN-AS"
 var state_confirm = [];
 var state_active = [];
@@ -26,11 +27,59 @@ function load_data() {
 
     // register statecode and stats from each state
     for(var i=1; i<data_json.statewise.length; i++) {
+        state_name[i] = data_json.statewise[i].state;
         state_code[i] = "IN-"+data_json.statewise[i].statecode;
         state_confirm[i] = parseInt(data_json.statewise[i].confirmed);
         state_active[i] = parseInt(data_json.statewise[i].active);
         state_recover[i] = parseInt(data_json.statewise[i].recovered);
         state_decease[i] = parseInt(data_json.statewise[i].deaths);
+
+        var row = statetable.insertRow(-1);
+        row.id = "state"+i; // set row id for each row
+        // Insert new cells (<td> elements) at the last position of the "new" <tr> element:
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+
+        cell1.style.backgroundColor = "rgb(244, 240, 249)";
+        cell1.style.color = "#6c757d";
+        cell1.style.border = "2px solid white";
+        cell1.style.borderRadius = "10px";
+        cell1.style.fontWeight = "600";
+
+        cell2.style.backgroundColor = "rgb(244, 240, 249)";
+        cell2.style.color = "#6c757d";
+        cell2.style.border = "2px solid white";
+        cell2.style.borderRadius = "10px";
+        cell2.style.fontWeight = "400";
+
+        cell3.style.backgroundColor = "rgb(244, 240, 249)";
+        cell3.style.color = "#6c757d";
+        cell3.style.border = "2px solid white";
+        cell3.style.borderRadius = "10px";
+        cell3.style.fontWeight = "400";
+
+        cell4.style.backgroundColor = "rgb(244, 240, 249)";
+        cell4.style.color = "#6c757d";
+        cell4.style.border = "2px solid white";
+        cell4.style.borderRadius = "10px";
+        cell4.style.fontWeight = "400";
+
+        cell5.style.backgroundColor = "rgb(244, 240, 249)";
+        cell5.style.color = "#6c757d";
+        cell5.style.border = "2px solid white";
+        cell5.style.borderRadius = "10px";
+        cell5.style.fontWeight = "400";
+        
+
+        // Add district info to the new cells:
+        cell1.innerHTML = state_name[i];
+        cell2.innerHTML = state_confirm[i];
+        cell3.innerHTML = state_active[i];
+        cell4.innerHTML = state_recover[i];
+        cell5.innerHTML = state_decease[i];
     }
 
     document.getElementById("indiaconfirmed").innerHTML = indiaTotalConfirmed;

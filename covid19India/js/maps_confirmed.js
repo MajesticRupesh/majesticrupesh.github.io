@@ -1,5 +1,6 @@
 var chart1;
 var user_lat=0, user_long=0;
+
 function loadchart1() {
 // Create map instance
 chart1 = am4core.create("chartdiv1", am4maps.MapChart);
@@ -24,22 +25,15 @@ polygonTemplate.tooltipText = "{name}";
     var indiaSeries = chart1.series.push(new am4maps.MapPolygonSeries());
     indiaSeries.geodata = am4geodata_indiaLow;
     var polygonTemplate = indiaSeries.mapPolygons.template;
-    
-    //polygonTemplate.tooltipText = "{name}";
-    //polygonTemplate.fill = am4core.color("#74B266");
 
     // Series for India states
     // Create hover state and set alternative fill color
     var hs = polygonTemplate.states.create("hover");
-    //hs.properties.fill = am4core.color("#367B25");
-    polygonTemplate.events.on("hit", function(ev) {
-        // get object info
-        ev.target.dataItem.properties.fill = am4core.color("#333");
-
-        //console.log(ev.target.dataItem.dataContext.name);
-        console.log(ev.target.dataItem.dataContext);
-        console.log(ev.target.dataItem.dataContext.id);
-    });
+    //hs.properties.fill = am4core.color("brown");
+    hs.properties.stroke = am4core.color("black");
+    hs.properties.strokeOpacity = 1;
+    hs.properties.strokeWidth = 2;
+    
 ///////////////////////////////////////
 //// SHOW INDIAN STATES END
 ///////////////////////////////////////
@@ -52,17 +46,10 @@ polygonTemplate.tooltipText = "{name}";
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(showPosition);
 } 
-else { 
-  console.log("Geolocation is not supported by this browser.");
-}
 
 ///////////////////////////////////////
 //// LAT LONG
 ///////////////////////////////////////
-
-console.log(Object(indiaSeries.data));
-
-
 
     polygonTemplate.tooltipText = "{name}: {value.value.formatNumber('#.0')}";
     
@@ -96,8 +83,7 @@ console.log(Object(indiaSeries.data));
 
     function handleHover(mapPolygon) {
         if (!isNaN(mapPolygon.dataItem.value)) {
-            console.log(mapPolygon.dataItem.value);
-          heatLegend.valueAxis.showTooltipAt(mapPolygon.dataItem.value);
+            heatLegend.valueAxis.showTooltipAt(mapPolygon.dataItem.value);
         } else {
             heatLegend.valueAxis.hideTooltip();
         }
@@ -142,11 +128,8 @@ function showPosition(position) {
   // Set property fields
   imageSeriesTemplate.propertyFields.latitude = "latitude";
   imageSeriesTemplate.propertyFields.longitude = "longitude";
-
-  
   
   // Add data for the user city
-  
   imageSeries.data = [{
     "latitude": user_lat,
     "longitude": user_long,

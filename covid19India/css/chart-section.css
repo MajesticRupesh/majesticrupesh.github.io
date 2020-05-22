@@ -1,6 +1,8 @@
 #chart-section {
     background: transparent;
-    padding: 20px 200px;
+    padding: 20px 0px;
+    width: 800px;
+    float: left;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -28,4 +30,24 @@
     font-size: 30px;
     font-weight: 700;
     padding-left: 20px;
+}
+
+
+.div-table {
+    display: table;         
+    width: auto;         
+    background-color: #eee;         
+    border: 1px solid #666666;         
+    border-spacing: 5px; /* cellspacing:poor IE support for  this */
+}
+.div-table-row {
+    display: table-row;
+    width: auto;
+    clear: both;
+}
+.div-table-col {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;         
+    width: 200px;         
+    background-color: #ccc;  
 }

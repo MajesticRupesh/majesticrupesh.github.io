@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="css/style_main.css">
     <link rel="stylesheet" href="css/digiscreen.css">
     <link rel="stylesheet" href="css/chart-section.css">
-    <link rel="stylesheet" href="css/precaution.css">
     
     <script src="js/script_main.js"></script>
     
@@ -89,29 +88,26 @@
         <div class="amchartclass" id="chartdiv3" style="display: none;"></div>
         <div class="amchartclass" id="chartdiv4" style="display: none;"></div>
     </section>
-    
+    <table  id="statetable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0,'statetable')">State</th>
+                <th onclick="sortTableNum(1,'statetable')">Confirmed</th>
+                <th onclick="sortTableNum(2,'statetable')">Active</th>
+                <th onclick="sortTableNum(3,'statetable')">Recovered</th>
+                <th onclick="sortTableNum(4,'statetable')">Deceased</th>
+            </tr>
+        </thead>
+        <tbody id="statebody">
+        </tbody>
+    </table>
+    <div class="div-table">
+
+    </div>
     
     <!-- India Heatmap End -->
-    <br><hr>
-
-
-    <!-- Precautions Begin -->
-    <section id="precautions">
-        <div id="panic"><p id="panicp"><b>BE PREPARED BUT DON'T PANIC</b></p></div>
-        <div class="points"> 
-            <div class="accordion" style="padding: 3px 10px;"><b>5 easy ways to keep Coronavirus away</b></div>
-            <div class="panel">
-                <br>
-                <p>1. HANDS - wash them frequently with soap and water or use alchohol-based sanitizer</p>
-                <p>2. ELBOW - in the absence of disposable tissue make use of folded elbow and cough/sneeze into it</p>
-                <p>3. FACE - don’t touch your face, particularly your eyes, nose or mouth</p>
-                <p>4. DISTANCE - if you are out, maintain social distancing. Keep a distance of at least 3feet from each other</p>
-                <p>5. FEEL - if you feel unwell, stay at home. But if you have fever, cough and difficulty in breathing seek medical help</p>
-            </div>
-        </div>
-    </section>
-    <!-- Precautions End -->
     <br>
+
 
 
    <script src="js/maps_confirmed.js"></script>

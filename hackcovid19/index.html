@@ -3,12 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
     <title>Document</title>
 </head>
-<body onload="load_data()">
-    
+<body>
+    <script src="https://d3js.org/d3.v5.js" charset="utf-8"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://d3js.org/d3-array.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo.v1.min.js"></script>
 
-    <script src="script.js"></script>
+    <script>
+
+        const topology = topojson.feature(
+            geoData,
+            geoData.objects[mapMeta.graphObjectName]
+        );
+        var width = 960, height = 1160;
+        var  MAP_META = {
+            India: {
+                name: 'India',
+                geoDataFile: 'maps/india.json',
+                
+                graphObjectName: 'india',
+            }
+        };
+
+        var projection = d3.geoMercator()
+            .scale(500)
+            .translate([width / 2, height / 2]);
+
+        var path = d3.geoPath()
+            .projection(projection);
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        
+        const g = svg.append('g').attr('class', MAP_META.graphObjectName);
+        g.append('g')
+            .attr('class', 'states')
+            .selectAll('path')
+            .data(topology.features)
+            .join('path')
+            .attr('class', 'path-region')
+            .attr('fill', function (d) {
+                const n = parseInt(mapData[d.properties[propertyField]]) || 0;
+                const color = n === 0 ? '#ffffff' : colorScale(n);
+                return color;
+            })
+            .attr('d', path)
+
+    </script>
+
 </body>
 </html>
