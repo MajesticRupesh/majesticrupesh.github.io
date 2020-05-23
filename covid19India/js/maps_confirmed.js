@@ -94,8 +94,11 @@ if (navigator.geolocation) {
         heatLegend.valueAxis.hideTooltip();
     });
 
-    chart1.zoomControl = new am4maps.ZoomControl();
-    chart1.zoomControl.valign = "top";
+    //chart1.zoomControl = new am4maps.ZoomControl();
+    //chart1.zoomControl.valign = "top";
+    chart1.seriesContainer.draggable = false;
+    chart1.seriesContainer.resizable = false;
+    chart1.maxZoomLevel = 1;
 
     //indiaSeries push data 
       indiaSeries.data = [];
