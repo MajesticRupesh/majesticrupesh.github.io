@@ -36,10 +36,10 @@ function load_data() {
 
     }
 
-    document.getElementById("indiaconfirmed").innerHTML = indiaTotalConfirmed;
-    document.getElementById("indiaactive").innerHTML = indiaTotalActive;
-    document.getElementById("indiarecovered").innerHTML = indiaTotalRecovered;
-    document.getElementById("indiadeceased").innerHTML = indiaTotalDeceased;
+    document.getElementById("indiaconfirmed").innerHTML = indiaTotalConfirmed+"<br><h4>&nbsp</h4>";
+    document.getElementById("indiaactive").innerHTML = indiaTotalActive+"<br><h4><b>("+(Math.round(indiaTotalActive/indiaTotalConfirmed*100 * 100) / 100).toFixed(0)+"%)</b></h4>";
+    document.getElementById("indiarecovered").innerHTML = indiaTotalRecovered+"<br><h4><b>("+(Math.round(indiaTotalRecovered/indiaTotalConfirmed*100 * 100) / 100).toFixed(0)+"%)</b></h4>";
+    document.getElementById("indiadeceased").innerHTML = indiaTotalDeceased+"<br><h4><b>("+(Math.round(indiaTotalDeceased/indiaTotalConfirmed*100 * 100) / 100).toFixed(0)+"%)</b></h4>";
 
     loadchart1();
     loadchart2();
