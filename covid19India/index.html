@@ -23,51 +23,47 @@
     
 </head>
 <body onload="load_data()">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="box-shadow:0px 2px 5px gray">
-        <p class="nav-item">
-            <a style="padding: 0px 5px 0px 0px;" class="nav-link" href="#">HOME</a>
-        </p>
-        <p class="nav-item">
-            <a style="padding: 0px 0px 0px 5px;" class="nav-link" href="charts/index.html">CHARTS</a>
-        </p>
-        <p style="margin-left: 10px;">
-            <input id="colormode" onchange="func(event)" type="checkbox" checked data-toggle="toggle" data-on="Light" data-off="Dark" data-onstyle="primary" data-offstyle="dark">
-        </p>
-    </nav>
-    <!-- Navbar ends -->
-   
     <!-- Homescreen begin -->
     <section class="screen-section screen-light">
+        <p id="switcher">
+            <input id="colormode" onchange="func(event)" type="checkbox" checked data-toggle="toggle" data-on="Light" data-off="Dark" data-onstyle="day" data-offstyle="night">
+        </p>
         <div class="screen-container">
-
             <h1 id="covid19_head">COVID 19 INDIA</h1>
+            <h5 id="designer">Web Designer: RUPESH PAL</h5><br>
+            <h5 id="lastupdate"></h5>
 
             <!-- Show number of cases begin -->
             <div class="cases">
                 <div class="info cases-light confirmed">
                     <p>CONFIRMED</p>
+                    <p id="deltaconfirmed"></p>
                     <p id="indiaconfirmed">-</p>
+                    <p id="confirmedpercent"></p>
                 </div>
                 <div class="info cases-light active">
                     <p>ACTIVE</p>
+                    <p id="deltaactive"></p>
                     <p id="indiaactive">-</p>
+                    <p id="activepercent"></p>
                 </div>
                 <div class="info cases-light recovered">
                     <p>RECOVERED</p>
+                    <p id="deltarecovered"></p>
                     <p id="indiarecovered">-</p>
+                    <p id="recoveredpercent"></p>
                 </div>
                 <div class="info cases-light deceased">
                     <p>DECEASED</p>
+                    <p id="deltadeceased"></p>
                     <p id="indiadeceased">-</p>
+                    <p id="deceasedpercent"></p>
                 </div>
             </div>
             <br>
             <!-- Show number of cases end -->
 
-            
-            <h3>Digital Screening Live</h3>
-            <div class="button"><a href="chatbot/index.html?lang=eng"><b>Screen Now</b></a></div>
+            <div class="button"><a href="chatbot/index.html?lang=eng"><b>Scan Covid19 digitally</b></a></div>
         </div>
     </section>
     <!-- Homescreen ends -->
@@ -76,13 +72,14 @@
 
     <!-- India Heatmap Begin -->
     <section id="chart-section">
+        <div id="india-heatmap">INDIA HEATMAP</div>
         <div class="buttons">
             <button type="button" class="btn btn-danger" onclick="confirm_chart()">Confirmed</button>
             <button type="button" class="btn btn-primary" onclick="active_chart()">Active</button>
             <button type="button" class="btn btn-success" onclick="recover_chart()">Recovered</button>
             <button type="button" class="btn btn-secondary" onclick="decease_chart()">Deceased</button>
         </div>
-        <div id="india-heatmap">INDIA HEATMAP</div>
+        
         <div class="amchartclass" id="chartdiv1" style="display: none;"></div>
         <div class="amchartclass" id="chartdiv2" style="display: none;"></div>
         <div class="amchartclass" id="chartdiv3" style="display: none;"></div>

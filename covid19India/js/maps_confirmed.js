@@ -29,7 +29,6 @@ polygonTemplate.tooltipText = "{name}";
     // Series for India states
     // Create hover state and set alternative fill color
     var hs = polygonTemplate.states.create("hover");
-    //hs.properties.fill = am4core.color("brown");
     hs.properties.stroke = am4core.color("black");
     hs.properties.strokeOpacity = 1;
     hs.properties.strokeWidth = 2;
@@ -48,7 +47,7 @@ if (navigator.geolocation) {
 } 
 
 ///////////////////////////////////////
-//// LAT LONG
+//// LAT LONG END
 ///////////////////////////////////////
 
     polygonTemplate.tooltipText = "{name}: {value.value.formatNumber('#.0')}";
@@ -56,8 +55,8 @@ if (navigator.geolocation) {
     indiaSeries.heatRules.push({
       property: "fill",
       target: indiaSeries.mapPolygons.template,
-      min: am4core.color("rgb(255,200,200)"),
-      max: am4core.color("red")
+      min: am4core.color("rgba(247, 212, 215,0.7)"),
+      max: am4core.color("rgba(217, 38, 56,0.7)")
     });
     
     indiaSeries.useGeodata = true;
@@ -94,8 +93,6 @@ if (navigator.geolocation) {
         heatLegend.valueAxis.hideTooltip();
     });
 
-    //chart1.zoomControl = new am4maps.ZoomControl();
-    //chart1.zoomControl.valign = "top";
     chart1.seriesContainer.draggable = false;
     chart1.seriesContainer.resizable = false;
     chart1.maxZoomLevel = 1;

@@ -36,10 +36,23 @@ function load_data() {
 
     }
 
-    document.getElementById("indiaconfirmed").innerHTML = indiaTotalConfirmed+"<br><h4>&nbsp</h4>";
-    document.getElementById("indiaactive").innerHTML = indiaTotalActive+"<br><h4><b>("+(Math.round(indiaTotalActive/indiaTotalConfirmed*100 * 100) / 100).toFixed(0)+"%)</b></h4>";
-    document.getElementById("indiarecovered").innerHTML = indiaTotalRecovered+"<br><h4><b>("+(Math.round(indiaTotalRecovered/indiaTotalConfirmed*100 * 100) / 100).toFixed(0)+"%)</b></h4>";
-    document.getElementById("indiadeceased").innerHTML = indiaTotalDeceased+"<br><h4><b>("+(Math.round(indiaTotalDeceased/indiaTotalConfirmed*100 * 100) / 100).toFixed(0)+"%)</b></h4>";
+    
+    document.getElementById("deltaconfirmed").innerHTML = "[+"+data_json.statewise[0].deltaconfirmed+"]";
+    document.getElementById("deltaactive").innerHTML = "&nbsp";
+    document.getElementById("deltarecovered").innerHTML = "[+"+data_json.statewise[0].deltarecovered+"]";
+    document.getElementById("deltadeceased").innerHTML = "[+"+data_json.statewise[0].deltadeaths+"]";
+
+    document.getElementById("indiaconfirmed").innerHTML = indiaTotalConfirmed;
+    document.getElementById("indiaactive").innerHTML = indiaTotalActive;
+    document.getElementById("indiarecovered").innerHTML = indiaTotalRecovered;
+    document.getElementById("indiadeceased").innerHTML = indiaTotalDeceased;
+
+    document.getElementById("confirmedpercent").innerHTML = "&nbsp";
+    document.getElementById("activepercent").innerHTML = "<b>("+(Math.round(indiaTotalActive/indiaTotalConfirmed*100 * 100) / 100).toFixed(1)+"%)</b>";
+    document.getElementById("recoveredpercent").innerHTML = "<b>("+(Math.round(indiaTotalRecovered/indiaTotalConfirmed*100 * 100) / 100).toFixed(1)+"%)</b>";
+    document.getElementById("deceasedpercent").innerHTML = "<b>("+(Math.round(indiaTotalDeceased/indiaTotalConfirmed*100 * 100) / 100).toFixed(1)+"%)</b>";
+
+    document.getElementById("lastupdate").innerHTML = "Updated "+data_json.statewise[0].lastupdatedtime;
 
     loadchart1();
     loadchart2();

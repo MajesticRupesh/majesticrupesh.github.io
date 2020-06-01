@@ -47,8 +47,8 @@ polygonTemplate.tooltipText = "{name}";
       indiaSeries.heatRules.push({
         property: "fill",
         target: indiaSeries.mapPolygons.template,
-        min: am4core.color("rgb(221,244,218)"),
-        max: am4core.color("rgb(40,167,69)")
+        min: am4core.color("rgba(214, 245, 221, 0.7)"),
+        max: am4core.color("rgba(40, 164, 69, 0.7)")
       });
 
     indiaSeries.useGeodata = true;
@@ -86,8 +86,9 @@ polygonTemplate.tooltipText = "{name}";
         heatLegend.valueAxis.hideTooltip();
     });
 
-    chart.zoomControl = new am4maps.ZoomControl();
-    chart.zoomControl.valign = "top";
+    chart.seriesContainer.draggable = false;
+    chart.seriesContainer.resizable = false;
+    chart.maxZoomLevel = 1;
 
     //indiaSeries push data 
     

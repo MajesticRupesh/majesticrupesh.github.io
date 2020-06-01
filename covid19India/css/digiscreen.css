@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     text-align: center;
     color: #000;
     justify-content: center;
@@ -12,7 +12,7 @@
 
 .screen-light {
     background: linear-gradient(-45deg, #ff7f57, #ff418a, #2bc6ff, #2dffce);
-    animation: gradient 15s ease infinite;
+    animation: gradient 10s ease infinite;
     background-size: 400% 400%;
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@
 
 .screen-dark {
     background: linear-gradient(-45deg, rgb(196,58,19), rgb(165,20,74), rgb(20,95,122), rgb(20,122,99));
-    animation: gradient 15s ease infinite;
+    animation: gradient 10s ease infinite;
     background-size: 400% 400%;   
     display: flex;
     flex-direction: column;
@@ -35,14 +35,27 @@
 
 /* Covid 19 India */
 .screen-container > h1 {
-    font-size: 70px;
+    font-size: 60px;
     text-shadow: 4px 4px 10px rgb(0, 4, 44);
 }
+#designer {
+    font-weight: 800;
+    opacity: 70%;
+}
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
     .screen-container > h1 {
-        font-size: 50px;
+        font-size: 30px;
     }
+    #designer {
+        font-weight: 800;
+        font-size: 20px;
+        opacity: 70%;
+    }
+}
+
+#lastupdate {
+    color: white;
 }
 
 /* Cases css begin */
@@ -77,19 +90,38 @@
     font-weight: 700;
 }
 
+#indiaconfirmed, #indiaactive, #indiarecovered, #indiadeceased {
+    font-size: 26px;
+    margin-bottom: 0;
+}
+#deltaconfirmed, #deltaactive, #deltarecovered, #deltadeceased {
+    font-size: 18px;
+    opacity: 60%;
+    margin-bottom: 0;
+}
+#confirmedpercent, #activepercent, #recoveredpercent, #deceasedpercent {
+    font-size: 16px;
+    opacity: 70%;
+}
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
     .info > p {
         margin: 0 5px;
     }
     .info > p:nth-child(1) {
         font-size: 15px;
     }
+    #indiaconfirmed, #indiaactive, #indiarecovered, #indiadeceased {
+        font-size: 20px;
+    }
+    #deltaconfirmed, #deltaactive, #deltarecovered, #deltadeceased {
+        font-size: 16px;
+    }
+    #confirmedpercent, #activepercent, #recoveredpercent, #deceasedpercent {
+        font-size: 14px;
+    }
 }
 
-.info > p:nth-child(2) {
-    font-size: 26px;
-}
 
 .cases > .cases-dark {
     font-size: 18px;
@@ -157,6 +189,12 @@
     text-align: center;
     box-shadow: 0px 0px 5px 2px white;
     border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .screen-container > .button > a {
+        font-size: 100%;
+    }
 }
 
 .screen-container > .button > a:hover {
