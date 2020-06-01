@@ -42,21 +42,25 @@
     font-weight: 800;
     opacity: 70%;
 }
+#lastupdate {
+    color: white;
+}
 
 @media only screen and (max-width: 600px) {
     .screen-container > h1 {
         font-size: 30px;
     }
     #designer {
-        font-weight: 800;
-        font-size: 20px;
+        font-weight: 700;
+        font-size: 16px;
         opacity: 70%;
+    }
+    #lastupdate {
+        font-size: 12px;
     }
 }
 
-#lastupdate {
-    color: white;
-}
+
 
 /* Cases css begin */
 .screen-container > .cases {
