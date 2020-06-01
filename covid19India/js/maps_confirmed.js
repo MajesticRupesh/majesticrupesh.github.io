@@ -62,8 +62,8 @@ if (navigator.geolocation) {
       indiaSeries.heatRules.push({
         property: "fill",
         target: indiaSeries.mapPolygons.template,
-        min: am4core.color("rgba(247, 212, 215,0.7)"),
-        max: am4core.color("rgba(217, 38, 56,0.7)")
+        min: am4core.color("rgba(247, 212, 215,0.8)"),
+        max: am4core.color("rgba(217, 38, 56,0.8)")
       });
     }
     else if(status==2) {
@@ -71,8 +71,8 @@ if (navigator.geolocation) {
       indiaSeries.heatRules.push({
         property: "fill",
         target: indiaSeries.mapPolygons.template,
-        min: am4core.color("rgba(204, 229, 255,0.7)"),
-        max: am4core.color("rgba(0, 99, 204,0.7)")
+        min: am4core.color("rgba(204, 229, 255,0.8)"),
+        max: am4core.color("rgba(0, 99, 204,0.8)")
       });
     }
     else if(status==3) {
@@ -80,8 +80,8 @@ if (navigator.geolocation) {
       indiaSeries.heatRules.push({
         property: "fill",
         target: indiaSeries.mapPolygons.template,
-        min: am4core.color("rgba(214, 245, 221, 0.7)"),
-        max: am4core.color("rgba(40, 164, 69, 0.7)")
+        min: am4core.color("rgba(214, 245, 221, 0.8)"),
+        max: am4core.color("rgba(40, 164, 69, 0.8)")
       });
     }
     else if(status==4) {
@@ -89,8 +89,8 @@ if (navigator.geolocation) {
       indiaSeries.heatRules.push({
         property: "fill",
         target: indiaSeries.mapPolygons.template,
-        min: am4core.color("rgba(228, 230, 231, 0.7)"),
-        max: am4core.color("rgba(95, 102, 109, 0.7)")
+        min: am4core.color("rgba(228, 230, 231, 0.8)"),
+        max: am4core.color("rgba(95, 102, 109, 0.8)")
       });
     }
     
