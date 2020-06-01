@@ -30,7 +30,7 @@
         </p>
         <div class="screen-container">
             <h1 id="covid19_head">COVID 19 INDIA</h1>
-            <h5 id="designer">Web Designer: RUPESH PAL</h5><br>
+            <h5 id="designer">Designed by: RUPESH PAL</h5><br>
             <h5 id="lastupdate"></h5>
 
             <!-- Show number of cases begin -->
@@ -63,7 +63,7 @@
             <br>
             <!-- Show number of cases end -->
 
-            <div class="button"><a href="chatbot/index.html?lang=eng"><b>Scan Covid19 digitally</b></a></div>
+            <div title="Chatbot to scan covid19" class="button"><a href="chatbot/index.html?lang=eng"><b>Scan Covid19 digitally</b></a></div>
         </div>
     </section>
     <!-- Homescreen ends -->
@@ -74,10 +74,10 @@
     <section id="chart-section">
         <div id="india-heatmap">INDIA HEATMAP</div>
         <div class="buttons">
-            <button type="button" class="btn btn-danger" onclick="confirm_chart()">Confirmed</button>
-            <button type="button" class="btn btn-primary" onclick="active_chart()">Active</button>
-            <button type="button" class="btn btn-success" onclick="recover_chart()">Recovered</button>
-            <button type="button" class="btn btn-secondary" onclick="decease_chart()">Deceased</button>
+            <button title="Show Confirmed Cases in INDIA" type="button" class="btn btn-danger" onclick="loadchart1(1)">Confirmed</button>
+            <button title="Show Active Cases in INDIA" type="button" class="btn btn-primary" onclick="loadchart1(2)">Active</button>
+            <button title="Show Recovered Cases in INDIA" type="button" class="btn btn-success" onclick="loadchart1(3)">Recovered</button>
+            <button title="Show Deceased Cases in INDIA" type="button" class="btn btn-secondary" onclick="loadchart1(4)">Deceased</button>
         </div>
         
         <div class="amchartclass" id="chartdiv1" style="display: none;"></div>
@@ -88,12 +88,7 @@
     <!-- India Heatmap End -->
     <br>
 
-
-
    <script src="js/maps_confirmed.js"></script>
-   <script src="js/maps_active.js"></script>
-   <script src="js/maps_recovered.js"></script>
-   <script src="js/maps_deceased.js"></script>
    <script src="js/load_data.js"></script>
 </body>
 </html>

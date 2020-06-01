@@ -28,6 +28,9 @@ function func(event) {
         // india total cases section
         $('.info').removeClass('cases-dark');
         $('.info').addClass('cases-light');
+
+        // designer
+        document.getElementById("designer").style.color ="yellow";
     }
     else {
         // dark
@@ -58,5 +61,8 @@ function func(event) {
         // india total cases section
         $('.info').removeClass('cases-light');
         $('.info').addClass('cases-dark');
+
+        // designer
+        document.getElementById("designer").style.color ="cyan";
     }
 }

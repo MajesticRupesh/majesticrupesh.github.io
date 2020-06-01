@@ -1,8 +1,13 @@
 var chart1;
 var user_lat=0, user_long=0;
 
-function loadchart1() {
+function loadchart1(status) {
 // Create map instance
+
+if(chart1) {
+  chart1.dispose();
+  delete chart1;
+}
 chart1 = am4core.create("chartdiv1", am4maps.MapChart);
 
 // Set map definition
@@ -52,12 +57,44 @@ if (navigator.geolocation) {
 
     polygonTemplate.tooltipText = "{name}: {value.value.formatNumber('#.0')}";
     
-    indiaSeries.heatRules.push({
-      property: "fill",
-      target: indiaSeries.mapPolygons.template,
-      min: am4core.color("rgba(247, 212, 215,0.7)"),
-      max: am4core.color("rgba(217, 38, 56,0.7)")
-    });
+    if(status==1){
+      indiaSeries.heatRules = [];
+      indiaSeries.heatRules.push({
+        property: "fill",
+        target: indiaSeries.mapPolygons.template,
+        min: am4core.color("rgba(247, 212, 215,0.7)"),
+        max: am4core.color("rgba(217, 38, 56,0.7)")
+      });
+    }
+    else if(status==2) {
+      indiaSeries.heatRules = [];
+      indiaSeries.heatRules.push({
+        property: "fill",
+        target: indiaSeries.mapPolygons.template,
+        min: am4core.color("rgba(204, 229, 255,0.7)"),
+        max: am4core.color("rgba(0, 99, 204,0.7)")
+      });
+    }
+    else if(status==3) {
+      indiaSeries.heatRules = [];
+      indiaSeries.heatRules.push({
+        property: "fill",
+        target: indiaSeries.mapPolygons.template,
+        min: am4core.color("rgba(214, 245, 221, 0.7)"),
+        max: am4core.color("rgba(40, 164, 69, 0.7)")
+      });
+    }
+    else if(status==4) {
+      indiaSeries.heatRules = [];
+      indiaSeries.heatRules.push({
+        property: "fill",
+        target: indiaSeries.mapPolygons.template,
+        min: am4core.color("rgba(228, 230, 231, 0.7)"),
+        max: am4core.color("rgba(95, 102, 109, 0.7)")
+      });
+    }
+    
+
     
     indiaSeries.useGeodata = true;
 
@@ -98,6 +135,7 @@ if (navigator.geolocation) {
     chart1.maxZoomLevel = 1;
 
     //indiaSeries push data 
+    if(status==1) {
       indiaSeries.data = [];
       for(var i=0;i<state_confirm.length;i++) {
         var fg = {
@@ -106,6 +144,37 @@ if (navigator.geolocation) {
         }
         indiaSeries.data.push(fg);
       }
+    }
+    else if(status==2) {
+      indiaSeries.data = [];
+      for(var i=0;i<state_active.length;i++) {
+        var fg = {
+            "id":state_code[i],
+            "value":state_active[i]
+        }
+        indiaSeries.data.push(fg);
+      }
+    }
+    else if(status==3) {
+      indiaSeries.data = [];
+      for(var i=0;i<state_recover.length;i++) {
+        var fg = {
+          "id":state_code[i],
+          "value":state_recover[i]
+        }
+        indiaSeries.data.push(fg);
+      }
+    }
+    else if(status==4) {
+      indiaSeries.data = [];
+      for(var i=0;i<state_active.length;i++) {
+        var fg = {
+          "id":state_code[i],
+          "value":state_decease[i]
+        }
+        indiaSeries.data.push(fg);
+      }
+    }
 }
 
 function showPosition(position) {

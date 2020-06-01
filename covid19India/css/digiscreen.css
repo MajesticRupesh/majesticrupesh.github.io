@@ -39,8 +39,8 @@
     text-shadow: 4px 4px 10px rgb(0, 4, 44);
 }
 #designer {
-    font-weight: 800;
-    opacity: 70%;
+    font-weight: 700;
+    color: yellow;
 }
 #lastupdate {
     color: white;
@@ -48,7 +48,7 @@
 
 @media only screen and (max-width: 600px) {
     .screen-container > h1 {
-        font-size: 30px;
+        font-size: 35px;
     }
     #designer {
         font-weight: 700;

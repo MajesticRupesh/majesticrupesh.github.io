@@ -54,36 +54,6 @@ function load_data() {
 
     document.getElementById("lastupdate").innerHTML = "Updated "+data_json.statewise[0].lastupdatedtime;
 
-    loadchart1();
-    loadchart2();
-    loadchart3();
-    loadchart4();
-    
-    // load heatmap of confirmed cases
-    confirm_chart();
-}
-
-function confirm_chart() {
+    loadchart1(1);
     document.getElementById("chartdiv1").style.display = "block";
-    document.getElementById("chartdiv2").style.display = "none";
-    document.getElementById("chartdiv3").style.display = "none";
-    document.getElementById("chartdiv4").style.display = "none";
-}
-function active_chart() {
-    document.getElementById("chartdiv1").style.display = "none";
-    document.getElementById("chartdiv2").style.display = "block";
-    document.getElementById("chartdiv3").style.display = "none";
-    document.getElementById("chartdiv4").style.display = "none";
-}
-function recover_chart() {
-    document.getElementById("chartdiv1").style.display = "none";
-    document.getElementById("chartdiv2").style.display = "none";
-    document.getElementById("chartdiv3").style.display = "block";
-    document.getElementById("chartdiv4").style.display = "none";
-}
-function decease_chart() {
-    document.getElementById("chartdiv1").style.display = "none";
-    document.getElementById("chartdiv2").style.display = "none";
-    document.getElementById("chartdiv3").style.display = "none";
-    document.getElementById("chartdiv4").style.display = "block";
 }
