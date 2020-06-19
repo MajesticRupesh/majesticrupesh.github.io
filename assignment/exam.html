@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #soap-id {
+            position: fixed;
+            right: 0px;
+            width: 500px;
+            top: 20px;
+            height: 500px;
+        }
+        p {
+            color: blue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the soap shop</h1>
+    <ol>
+        <li><img src="https://5.imimg.com/data5/LW/GN/MY-4990337/bath-soap-500x500.jpg" alt="soap" height="100px"><br><p onclick="func(1)">ABC Soap</p></li>
+        <li><img src="https://images.theconversation.com/files/333754/original/file-20200508-49546-dx6y3a.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop" alt="soap" height="100px"><br> <p onclick="func(2)">XYZ Soap</p> </li>
+        <li><img src="https://media.treehugger.com/assets/images/2019/01/soap.jpg.860x0_q70_crop-scale.jpg" alt="soap" height="100px"><br> <p onclick="func(3)">MNP soap</p> </li>
+    </ol>
+
+    <div id="soap-id">
+
+    </div>
+
+    <script>
+        function func(n) {
+            if(n==1) 
+                document.getElementById("soap-id").innerHTML = "<h1>Dove beauty bar doesn’t dry skin like regular soap can Moisturizing cream and gentle cleansers help retain skin’s moisture Leaves skin softer, smoother and more glowing No1 brand recommended by dermatologists It’s not a soap it’s a beauty bar Suitable for daily use on face, body and hands</h1>";
+            else if(n==2) 
+                document.getElementById("soap-id").innerHTML = "<h1>Natural Fairness Soap with Saffron It contains the goodness of Saffron (Kesar) & Kumkumadi Tailam For Fair & Glowing Skin Saffron (Kesar) is an Ayurvedic herb with great medicinal value known for its brightening and healing properties Kumkumadi Tailam cures marks, lighten skin colour and improve skin’s quality Kumkumadi Tailam is a unique blend of 16 herbs and oil</h1>";
+            else if(n==3) 
+                document.getElementById("soap-id").innerHTML = "<h1>Quality: 625g (Each 125g); Item Form: Solid Santoor Sandal and Almond milk soap hydrates and moisturizes your skin to have a glow like a bride; Great solution for problems such as blackhead, acne and skin allergies Has antimicrobial properties, making it a popular herbal antiseptic for treating minor skin abrasions; It removes tanning, cures skin itching and detoxifies the skin. Leaves the skin refreshingly fragrant.</h1>";
+        }
+    </script>
+</body>
+</html>
